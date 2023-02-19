@@ -7,7 +7,7 @@ import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseActivity
 import com.example.unipivetapp.databinding.ActivityMainBinding
 import com.example.unipivetapp.ui.onboarding.navigator.OnboardingNavigatorImpl
-import com.example.unipivetapp.util.hideActionBar
+import com.example.unipivetapp.util.ext.hideActionBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

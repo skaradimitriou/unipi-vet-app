@@ -1,4 +1,4 @@
-package com.example.unipivetapp.util
+package com.example.unipivetapp.util.ext
 
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment

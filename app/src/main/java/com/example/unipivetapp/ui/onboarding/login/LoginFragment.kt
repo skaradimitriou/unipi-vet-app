@@ -10,7 +10,7 @@ import com.example.unipivetapp.databinding.FragmentLoginBinding
 import com.example.unipivetapp.ui.dashboard.DashboardActivity
 import com.example.unipivetapp.ui.onboarding.OnboardingSharedViewModel
 import com.example.unipivetapp.ui.onboarding.navigator.OnboardingAction
-import com.example.unipivetapp.util.showSnackbar
+import com.example.unipivetapp.util.ext.showSnackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

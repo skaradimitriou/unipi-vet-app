@@ -13,6 +13,8 @@
     <!-- Register Screen -->
     <string name="confirm_pass_hint">Επιβεβαίωση Κωδικού Πρόσβασης</string>
     <string name="register_btn">Εγγραφή</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

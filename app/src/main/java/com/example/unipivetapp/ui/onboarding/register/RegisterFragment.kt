@@ -7,7 +7,7 @@ import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseFragment
 import com.example.unipivetapp.databinding.FragmentRegisterBinding
 import com.example.unipivetapp.ui.dashboard.DashboardActivity
-import com.example.unipivetapp.util.showSnackbar
+import com.example.unipivetapp.util.ext.showSnackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

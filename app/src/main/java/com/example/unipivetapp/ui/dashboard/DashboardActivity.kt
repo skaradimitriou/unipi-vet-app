@@ -1,12 +1,24 @@
 package com.example.unipivetapp.ui.dashboard
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.unipivetapp.R
+import com.example.unipivetapp.base.BaseActivity
+import com.example.unipivetapp.databinding.ActivityDashboardBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class DashboardActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard)
+@AndroidEntryPoint
+class DashboardActivity : BaseActivity<ActivityDashboardBinding>(R.layout.activity_dashboard) {
+
+    private lateinit var navController: NavController
+
+    override fun init() {
+        navController = findNavController(R.id.nav_host_fragment)
+        binding.bottomNavigationMenu.setupWithNavController(navController)
     }
+
+    override fun startOps() {}
+
+    override fun stopOps() {}
 }

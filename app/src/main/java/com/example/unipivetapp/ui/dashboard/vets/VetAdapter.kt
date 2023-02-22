@@ -11,8 +11,7 @@ import com.example.unipivetapp.databinding.HolderVetItemBinding
 
 class VetAdapter(
     private val callback: VetCallback
-) :
-    ListAdapter<UiModel, VetViewHolder>(DiffUtilClass<UiModel>()) {
+) : ListAdapter<UiModel, VetViewHolder>(DiffUtilClass<UiModel>()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VetViewHolder {
         val view = HolderVetItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)

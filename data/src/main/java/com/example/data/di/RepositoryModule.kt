@@ -1,6 +1,8 @@
 package com.example.data.di
 
+import com.example.data.repositories.ProfileRepositoryImpl
 import com.example.data.repositories.VetRepositoryImpl
+import com.example.domain.repositories.ProfileRepository
 import com.example.domain.repositories.VetReponsitory
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
@@ -16,4 +18,8 @@ class RepositoryModule {
     @Provides
     fun provideVetRepository(firestore: FirebaseFirestore): VetReponsitory =
         VetRepositoryImpl(firestore)
+
+    @Provides
+    fun provideProfileRepository(firestore: FirebaseFirestore): ProfileRepository =
+        ProfileRepositoryImpl(firestore)
 }

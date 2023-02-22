@@ -12,15 +12,20 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
 
     private val viewModel: ProfileViewModel by viewModels()
 
+    /*
+     * FIXME: 1. Finalize strings to be displayed.
+     *        2. Connect adapter with viewmodel data
+     *        3. add logout functionality on logout btn click.
+     */
+
     override fun init() {
-        setScreenTitle("Profile")
+        setScreenTitle("Προφίλ")
+        binding.viewModel = viewModel
     }
 
     override fun startOps() {
-
+        viewModel.getProfileInfo()
     }
 
-    override fun stopOps() {
-
-    }
+    override fun stopOps() {}
 }

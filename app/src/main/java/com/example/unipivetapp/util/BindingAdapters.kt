@@ -1,6 +1,7 @@
 package com.example.unipivetapp.util
 
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
@@ -37,8 +38,18 @@ fun ImageView.setProfileImage(url: String?) {
 @BindingAdapter("setProfileOptionValue")
 fun TextView.setProfileOptionValue(value: String?) {
     text = if (value.isNullOrEmpty()) {
-        "Not provided yet."
+        resources.getString(R.string.profile_option_missing)
     } else {
         value
     }
+}
+
+@BindingAdapter("setVetRating")
+fun RatingBar.setVetRating(rate: Double?) {
+    rating = rate?.toFloat() ?: 0F
+}
+
+@BindingAdapter("setWorkingExperience")
+fun TextView.setWorkingExperience(experience: Int?) {
+    text = resources.getString(R.string.working_experience, experience)
 }

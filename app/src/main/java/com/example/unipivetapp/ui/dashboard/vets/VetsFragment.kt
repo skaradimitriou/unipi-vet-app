@@ -12,17 +12,19 @@ import timber.log.Timber
 class VetsFragment : BaseFragment<FragmentVetsBinding>(R.layout.fragment_vets) {
 
     private val viewModel: VetsViewModel by viewModels()
+
     private val adapter = VetAdapter { selectedVet ->
         Timber.d("$selectedVet")
     }
 
     override fun init() {
-        setScreenTitle("Vets")
+        setScreenTitle(getString(R.string.vets_title))
         binding.adapter = adapter
-        viewModel.getAllVets()
     }
 
     override fun startOps() {
+        viewModel.getAllVets()
+
         viewModel.vets.observe(viewLifecycleOwner) { vets ->
             adapter.submitList(vets)
         }

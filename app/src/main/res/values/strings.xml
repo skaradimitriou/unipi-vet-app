@@ -15,8 +15,15 @@
     <string name="register_btn">Εγγραφή</string>
 
     <!-- Main Screen Titles -->
+    <string name="vets_title">Vets</string>
     <string name="profile_title">Profile</string>
 
+    <!-- Vets Screen -->
+    <string name="dummy_doc_fullname">Manthos Foustanos</string>
+    <string name="dummy_doc_category">VET</string>
+    <string name="doc_experience">Experience</string>
+    <string name="dummy_doc_experience">10 years</string>
+    <string name="working_experience">%d years</string>
 
     <!-- Profile Screen -->
     <string name="profile_dummy_username">foustanos</string>

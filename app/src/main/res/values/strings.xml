@@ -15,7 +15,9 @@
     <string name="register_btn">Εγγραφή</string>
 
     <!-- Main Screen Titles -->
+    <string name="home_title">Home</string>
     <string name="vets_title">Vets</string>
+    <string name="appointments_title">Appointments</string>
     <string name="profile_title">Profile</string>
 
     <!-- Vets Screen -->

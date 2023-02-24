@@ -6,9 +6,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.UserInfo
 import com.example.domain.usecases.GetProfileInfoUseCase
+import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseViewModel
 import com.example.unipivetapp.di.IoDispatcher
-import com.example.unipivetapp.ui.dashboard.profile.uimodel.ProfileItem
+import com.example.unipivetapp.ui.dashboard.profile.uimodel.ProfileOption
+import com.example.unipivetapp.ui.dashboard.profile.uimodel.ProfileOptionType
 import com.example.unipivetapp.ui.dashboard.profile.uimodel.ProfileScreenUiModel
 import com.example.unipivetapp.util.auth.Authenticator
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -29,6 +31,11 @@ class ProfileViewModel @Inject constructor(
 
     private val _userInfo = MutableLiveData<ProfileScreenUiModel>()
 
+    val userLoggedOut: LiveData<Boolean>
+        get() = _userLoggedOut
+
+    private val _userLoggedOut = MutableLiveData<Boolean>()
+
     fun getProfileInfo() {
         viewModelScope.launch(dispatcher) {
             val uid = authenticator.getActiveUser()?.uid.toString()
@@ -41,9 +48,20 @@ class ProfileViewModel @Inject constructor(
         userImg = userImg,
         username = username,
         items = listOf(
-            ProfileItem("email", email),
-            ProfileItem("telephone", telephone),
-            ProfileItem("logout", "Αποσύνδεση"),
+            ProfileOption(getString(R.string.email), email),
+            ProfileOption(getString(R.string.telephone), telephone),
+            ProfileOption(getString(R.string.first_name), firstName),
+            ProfileOption(getString(R.string.last_name), lastName),
+            ProfileOption(
+                getString(R.string.logout),
+                getString(R.string.exit_the_app),
+                ProfileOptionType.LOGOUT
+            ),
         )
     )
+
+    fun logoutUser() {
+        val result = authenticator.logout()
+        _userLoggedOut.postValue(result)
+    }
 }

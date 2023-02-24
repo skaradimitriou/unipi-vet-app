@@ -16,48 +16,49 @@
         tools:context=".ui.dashboard.profile.ProfileFragment">
 
         <View
-            android:id="@+id/profile_bg"
+            android:id="@+id/profileBgView"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="@dimen/dimen_100"
             android:background="@color/light_blue"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
-            android:id="@+id/profile_bg_center"
-            android:layout_width="1dp"
-            android:layout_height="1dp"
-            app:layout_constraintBottom_toBottomOf="@id/profile_bg"
+            android:id="@+id/profileBgCenterView"
+            android:layout_width="@dimen/dimen_1"
+            android:layout_height="@dimen/dimen_1"
+            app:layout_constraintBottom_toBottomOf="@id/profileBgView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_user_img"
+            android:id="@+id/profileUserImgView"
             android:layout_width="@dimen/dimen_3xl"
             android:layout_height="@dimen/dimen_3xl"
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
-            app:imageFromUrl="@{viewModel.userInfo.userImg}"
-            app:layout_constraintBottom_toBottomOf="@id/profile_bg_center"
-            app:layout_constraintEnd_toEndOf="@id/profile_bg_center"
-            app:layout_constraintStart_toStartOf="@id/profile_bg_center"
-            app:layout_constraintTop_toTopOf="@id/profile_bg_center"
-            tools:src="@mipmap/ic_launcher" />
+            app:layout_constraintBottom_toBottomOf="@id/profileBgCenterView"
+            app:layout_constraintEnd_toEndOf="@id/profileBgCenterView"
+            app:layout_constraintStart_toStartOf="@id/profileBgCenterView"
+            app:layout_constraintTop_toTopOf="@id/profileBgCenterView"
+            app:setProfileImage="@{viewModel.userInfo.userImg}"
+            tools:src="@drawable/profile_placeholder" />
 
         <TextView
             android:id="@+id/profile_user_name"
+            style="@style/text_18_bold_center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:padding="@dimen/dimen_10"
             android:text="@{viewModel.userInfo.username}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/profile_user_img"
-            app:layout_constraintTop_toBottomOf="@id/profile_user_img"
-            tools:text="Dummy username" />
+            app:layout_constraintStart_toEndOf="@id/profileUserImgView"
+            app:layout_constraintTop_toBottomOf="@id/profileUserImgView"
+            tools:text="@string/profile_dummy_username" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/profile_details_recycler"
+            android:id="@+id/profileDetailsRecycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"

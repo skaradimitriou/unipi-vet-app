@@ -37,5 +37,5 @@ interface Authenticator {
      * Logout feature
      */
 
-    fun logout()
+    fun logout(): Boolean
 }

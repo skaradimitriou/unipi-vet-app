@@ -50,7 +50,8 @@ class AuthManager @Inject constructor(
 
     override fun getActiveUser(): FirebaseUser? = auth.currentUser
 
-    override fun logout() {
+    override fun logout(): Boolean {
         auth.signOut()
+        return auth.currentUser == null
     }
 }

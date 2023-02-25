@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.unipivetapp.ui.docdetails.uimodel.DocHeader" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dimen_m">
+
+        <ImageView
+            android:id="@+id/doctor_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_300"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setProfileImage="@{model.image}"
+            tools:src="@drawable/profile_placeholder" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_corners_top"
+            android:paddingHorizontal="@dimen/dimen_m"
+            app:layout_constraintBottom_toBottomOf="@id/doctor_img"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/doctor_name"
+                style="@style/text_18_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_m"
+                android:text="@{model.fullName}"
+                app:layout_constraintTop_toTopOf="@id/background"
+                tools:text="@string/dummy_doc_fullname" />
+
+            <TextView
+                android:id="@+id/doctor_category"
+                style="@style/text_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{model.category}"
+                app:layout_constraintTop_toBottomOf="@id/doctor_name"
+                tools:text="@string/dummy_doc_category" />
+
+            <RatingBar
+                android:id="@+id/docRating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_s"
+                android:progressTint="@color/orange"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/doctor_category"
+                app:setVetRating="@{model.rating}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

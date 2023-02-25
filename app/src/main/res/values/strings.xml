@@ -27,6 +27,13 @@
     <string name="dummy_doc_experience">10 years</string>
     <string name="working_experience">%d years</string>
 
+    <!-- Vet Details Screen -->
+    <string name="vet_reviews">Κριτικές</string>
+    <string name="vet_reviews_placeholder">Διάβασε τι λένε οι χρήστες μας για τον %1s</string>
+    <string name="vet_appointment">Ραντεβού</string>
+    <string name="vet_appointment_desc">Επιθυμείς να κλείσεις ραντεβού με τον κτηνίατρο;</string>
+    <string name="vet_appointment_btn">Κλείσε ραντεβού</string>
+
     <!-- Profile Screen -->
     <string name="profile_dummy_username">foustanos</string>
     <string name="profile_option_title">title</string>

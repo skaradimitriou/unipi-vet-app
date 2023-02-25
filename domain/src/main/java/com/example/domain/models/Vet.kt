@@ -1,5 +1,9 @@
 package com.example.domain.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Vet(
     val category: String,
     val experience: Int,
@@ -9,6 +13,6 @@ data class Vet(
     val image: String,
     val mobileNo: String,
     val rating: Double
-) : UiModel {
+) : UiModel, Parcelable {
     override fun equalsContent(obj: UiModel): Boolean = false
 }

@@ -21,9 +21,14 @@ class DocDetailsViewModel @Inject constructor(
 
     private val _vetInfo = MutableLiveData<List<UiModel>>()
 
+    private var selectedVet: Vet? = null
+
     fun displayVetDetails(vet: Vet) {
+        selectedVet = vet
         _vetInfo.postValue(vet.toUiModel())
     }
+
+    fun getVetInfo() = selectedVet
 
     private fun Vet.toUiModel() = listOf(
         DocHeader(

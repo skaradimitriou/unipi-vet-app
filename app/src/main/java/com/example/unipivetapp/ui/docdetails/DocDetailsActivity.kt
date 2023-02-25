@@ -1,11 +1,13 @@
 package com.example.unipivetapp.ui.docdetails
 
+import android.content.Intent
 import android.view.MenuItem
 import androidx.activity.viewModels
 import com.example.domain.models.Vet
 import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseActivity
 import com.example.unipivetapp.databinding.ActivityDocDetailsBinding
+import com.example.unipivetapp.ui.appointments.AppointmentsActivity
 import com.example.unipivetapp.util.VET
 import com.example.unipivetapp.util.ext.getParcelable
 
@@ -18,7 +20,9 @@ class DocDetailsActivity : BaseActivity<ActivityDocDetailsBinding>(R.layout.acti
         }
 
         override fun onAppointmentClick() {
-            //FIXME: Open appointment activity or flow
+            startActivity(Intent(this@DocDetailsActivity, AppointmentsActivity::class.java).apply {
+                putExtra(VET, viewModel.getVetInfo())
+            })
         }
     })
 

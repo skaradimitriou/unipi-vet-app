@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.ListAdapter
 import com.example.domain.models.UiModel
+import com.example.domain.models.Vet
 import com.example.unipivetapp.BR
 import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseViewHolder

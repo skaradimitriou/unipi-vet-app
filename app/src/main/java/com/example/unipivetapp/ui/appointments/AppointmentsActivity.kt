@@ -10,12 +10,14 @@ import com.example.unipivetapp.databinding.ActivityAppointmentsBinding
 import com.example.unipivetapp.ui.appointments.navigator.AppointmentNavigatorImpl
 import com.example.unipivetapp.util.VET
 import com.example.unipivetapp.util.ext.getParcelable
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AppointmentsActivity :
     BaseActivity<ActivityAppointmentsBinding>(R.layout.activity_appointments) {
 
     private val viewModel: AppointmentsViewModel by viewModels()
-    private val sharedViewModel : AppointmentsSharedViewModel by viewModels()
+    private val sharedViewModel: AppointmentsSharedViewModel by viewModels()
 
     private lateinit var navController: NavController
     private lateinit var navigator: AppointmentNavigatorImpl

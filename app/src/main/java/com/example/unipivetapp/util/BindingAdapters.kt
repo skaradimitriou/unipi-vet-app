@@ -6,6 +6,9 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.example.unipivetapp.R
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 /**
  * This file contains the binding adapters that are used across the app
@@ -52,4 +55,15 @@ fun RatingBar.setVetRating(rate: Double?) {
 @BindingAdapter("setWorkingExperience")
 fun TextView.setWorkingExperience(experience: Int?) {
     text = resources.getString(R.string.working_experience, experience)
+}
+
+@BindingAdapter("setCalendarDayOfMonth")
+fun TextView.setCalendarDayOfMonth(date: LocalDate) {
+    text = date.dayOfMonth.toString()
+}
+
+@BindingAdapter("setDayOfMonth")
+fun TextView.setDayOfMonth(date: LocalDate) {
+    val format1 = DateTimeFormatter.ofPattern("EEE")
+    text = date.format(format1)
 }

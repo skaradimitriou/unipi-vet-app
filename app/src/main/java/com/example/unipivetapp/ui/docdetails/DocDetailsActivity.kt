@@ -20,9 +20,7 @@ class DocDetailsActivity : BaseActivity<ActivityDocDetailsBinding>(R.layout.acti
         }
 
         override fun onAppointmentClick() {
-            startActivity(Intent(this@DocDetailsActivity, AppointmentsActivity::class.java).apply {
-                putExtra(VET, viewModel.getVetInfo())
-            })
+            startActivity(Intent(this@DocDetailsActivity, AppointmentsActivity::class.java))
         }
     })
 

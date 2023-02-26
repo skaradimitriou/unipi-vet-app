@@ -29,6 +29,9 @@
     <string name="dummy_doc_experience">10 years</string>
     <string name="working_experience">%d years</string>
 
+    <!-- My Appointments -->
+    <string name="my_appointments_title">Τα ραντεβού μου</string>
+
     <!-- Vet Details Screen -->
     <string name="vet_reviews">Κριτικές</string>
     <string name="vet_reviews_placeholder">Διάβασε τι λένε οι χρήστες μας για τον %1s</string>

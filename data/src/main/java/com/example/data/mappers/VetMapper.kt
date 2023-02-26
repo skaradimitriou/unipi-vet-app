@@ -10,7 +10,7 @@ object VetMapper : Mapper<List<VetDto>?, List<Vet>> {
         return dto?.map { it.toDomainModel() } ?: listOf()
     }
 
-    private fun VetDto?.toDomainModel() = Vet(
+    fun VetDto?.toDomainModel() = Vet(
         category = this?.category.toNotNull(),
         experience = this?.experience.toNotNull(),
         firstName = this?.firstName.toNotNull(),

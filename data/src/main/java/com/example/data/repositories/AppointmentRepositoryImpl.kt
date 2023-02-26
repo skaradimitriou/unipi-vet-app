@@ -1,6 +1,10 @@
 package com.example.data.repositories
 
+import com.example.data.mappers.AppointmentsMapper
+import com.example.data.models.AppointmentDto
 import com.example.data.util.APPOINTMENTS_DB_PATH
+import com.example.data.util.UUID
+import com.example.data.util.toListOf
 import com.example.domain.models.Appointment
 import com.example.domain.models.AppointmentInfo
 import com.example.domain.models.Result
@@ -38,5 +42,15 @@ class AppointmentRepositoryImpl @Inject constructor(
             .await()
 
         return result
+    }
+
+    override suspend fun getMyAppointments(uuid: String): Result<List<AppointmentInfo>> {
+        val result = firestore.collection(APPOINTMENTS_DB_PATH)
+            .whereEqualTo(UUID, uuid)
+            .get()
+            .await()
+            .toListOf<AppointmentDto>()
+
+        return Result.Success(AppointmentsMapper.toDomainModel(result))
     }
 }

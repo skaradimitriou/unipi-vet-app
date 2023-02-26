@@ -6,7 +6,10 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.example.unipivetapp.R
+import java.security.Timestamp
+import java.text.SimpleDateFormat
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
@@ -72,4 +75,20 @@ fun TextView.setDayOfMonth(date: LocalDate?) {
 fun TextView.setAppointmentDate(date: LocalDate?) {
     val format1 = DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy")
     text = date?.format(format1).toString()
+}
+
+@BindingAdapter("setAppointmentInfoDate")
+fun TextView.setAppointmentInfoDate(date: String) {
+    val input = SimpleDateFormat("yyyy-MM-dd'T'HH:mm")
+    val outputDate = input.parse(date)
+    val sdf = SimpleDateFormat("EEEE, dd MMMM yyyy")
+    text = sdf.format(outputDate).toString()
+}
+
+@BindingAdapter("setAppointmentInfoTime")
+fun TextView.setAppointmentInfoTime(time: String) {
+    val input = SimpleDateFormat("yyyy-MM-dd'T'HH:mm")
+    val outputTime = input.parse(time)
+    val sdf = SimpleDateFormat("HH:mm")
+    text = sdf.format(outputTime).toString()
 }

@@ -63,6 +63,6 @@
 
     <!-- Appointment Result -->
     <string name="appointment_saved">Το Ραντεβού σου αποθηκεύτηκε</string>
-    <string name="appointment_saved_desc">Θα μπορείς πλέον να δεις το ραντεβού σου απο την κατηγορία 'ραντεβού'</string>
+    <string name="appointment_saved_desc">Θα μπορείς πλέον να δεις το ραντεβού σου απο την κατηγορία ραντεβού</string>
 
 </resources>

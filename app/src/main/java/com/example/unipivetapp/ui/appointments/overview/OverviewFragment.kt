@@ -2,6 +2,7 @@ package com.example.unipivetapp.ui.appointments.overview
 
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import com.example.domain.models.Result
 import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseFragment
 import com.example.unipivetapp.databinding.FragmentOverviewBinding
@@ -21,13 +22,26 @@ class OverviewFragment : BaseFragment<FragmentOverviewBinding>(R.layout.fragment
     override fun init() {
         setScreenTitle(getString(R.string.overview_title))
         binding.sharedViewModel = sharedViewModel
+
+        binding.continueBtn.setOnClickListener {
+            val appointment = sharedViewModel.appointment.value
+            val vet = sharedViewModel.selectedVet.value
+
+            if (appointment != null && vet != null) {
+                viewModel.saveAppointment(appointment, vet)
+            }
+        }
     }
 
     override fun startOps() {
         sharedViewModel.getAppointmentData()
 
-        binding.continueBtn.setOnClickListener {
-            activityViewModel.navigateToScreen(AppointmentAction.RESULT)
+        viewModel.appointmentSaved.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is Result.Loading -> binding.continueBtn.isEnabled = false
+                is Result.Success -> activityViewModel.navigateToScreen(AppointmentAction.RESULT)
+                is Result.Failure -> binding.continueBtn.isEnabled = true
+            }
         }
     }
 

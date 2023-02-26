@@ -18,13 +18,14 @@
         android:layout_marginHorizontal="@dimen/dimen_m"
         android:layout_marginVertical="@dimen/dimen_s"
         android:background="@drawable/round_corners"
-        android:backgroundTint="@{model.selected ? @color/light_blue : @color/white}">
+        android:backgroundTint="@{model.selected ? @color/dark_blue : @color/white}">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/dimen_m"
             android:text="@{model.value}"
+            android:textColor="@{model.selected ? @color/white : @color/grey_dark_bg}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@tools:sample/lorem" />

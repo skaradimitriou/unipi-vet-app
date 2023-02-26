@@ -1,5 +1,6 @@
 package com.example.unipivetapp.ui.appointments
 
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -31,7 +32,7 @@ class AppointmentsActivity :
         }
 
         navController.addOnDestinationChangedListener { _, _, _ ->
-            supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
     }
 
@@ -43,6 +44,14 @@ class AppointmentsActivity :
 
     override fun stopOps() {
         viewModel.navigatorState.removeObservers(this)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        android.R.id.home -> {
+            navigator.goBack()
+            true
+        }
+        else -> false
     }
 
     override fun onBackPressed() {

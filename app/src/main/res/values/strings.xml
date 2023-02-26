@@ -3,6 +3,7 @@
 
     <!-- General -->
     <string name="lorem_ipsum">Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. </string>
+    <string name="continue_btn">Συνέχεια</string>
 
     <!-- Login Screen -->
     <string name="email_hint">E-mail</string>
@@ -21,6 +22,7 @@
     <string name="profile_title">Profile</string>
 
     <!-- Vets Screen -->
+    <string name="vet_details_title">Πληροφορίες</string>
     <string name="dummy_doc_fullname">Manthos Foustanos</string>
     <string name="dummy_doc_category">VET</string>
     <string name="doc_experience">Experience</string>
@@ -46,8 +48,21 @@
     <string name="last_name">Last Name</string>
     <string name="logout">Logout</string>
     <string name="exit_the_app">Exit the app</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!--Appointments -->
+    <string name="appointment_title">Ορισμός Ραντεβού</string>
+    <string name="overview_title">Επισκόπηση</string>
+    <string name="result_title">Επιτυχία</string>
+
+    <!-- Calendar -->
+    <string name="dummy_month_name">Φεβρουάριος</string>
+    <string name="appointment_overview">Σύνοψη ραντεβού</string>
+    <string name="my_appointment">To Ραντεβού μου</string>
+    <string name="dummy_appointment_date">Sunday, 26 February 2023</string>
+    <string name="dummy_appointment_time">11:00</string>
+
+    <!-- Appointment Result -->
+    <string name="appointment_saved">Το Ραντεβού σου αποθηκεύτηκε</string>
+    <string name="appointment_saved_desc">Θα μπορείς πλέον να δεις το ραντεβού σου απο την κατηγορία 'ραντεβού'</string>
 
 </resources>

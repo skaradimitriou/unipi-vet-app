@@ -37,11 +37,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/dimen_m"
-            android:text="Φεβρουάριος"
             app:layout_constraintBottom_toBottomOf="@id/calendarImgView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/calendarImgView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/dummy_month_name" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/daysRecycler"
@@ -82,7 +82,7 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/button_height"
                 android:layout_marginTop="@dimen/dimen_l"
-                android:text="Συνέχεια"
+                android:text="@string/continue_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

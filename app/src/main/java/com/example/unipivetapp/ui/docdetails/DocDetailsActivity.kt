@@ -20,12 +20,14 @@ class DocDetailsActivity : BaseActivity<ActivityDocDetailsBinding>(R.layout.acti
         }
 
         override fun onAppointmentClick() {
-            startActivity(Intent(this@DocDetailsActivity, AppointmentsActivity::class.java))
+            startActivity(Intent(this@DocDetailsActivity, AppointmentsActivity::class.java).apply {
+                putExtra(VET, viewModel.getVetInfo())
+            })
         }
     })
 
     override fun init() {
-        title = "Πληροφορίες"
+        title = getString(R.string.vet_details_title)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.adapter = adapter
         intent.getParcelable<Vet>(VET)?.let {

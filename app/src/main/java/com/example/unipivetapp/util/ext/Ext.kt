@@ -3,12 +3,15 @@ package com.example.unipivetapp.util.ext
 import android.content.Intent
 import android.os.Build.VERSION.SDK_INT
 import android.os.Parcelable
+import android.widget.TextView
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 /**
  * Helper method to show a simple [Snackbar].
@@ -28,4 +31,9 @@ fun Fragment.withDelay(time: Long, action: () -> Unit) {
         delay(time)
         action.invoke()
     }
+}
+
+fun TextView.setMonthName() {
+    val format = DateTimeFormatter.ofPattern("MMMM")
+    text = LocalDate.now()?.format(format).toString()
 }

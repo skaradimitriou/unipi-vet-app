@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_s"
         android:background="@drawable/round_corners"
-        android:backgroundTint="@{model.selected ? @color/light_blue : @color/white}"
+        android:backgroundTint="@{model.selected ? @color/dark_blue : @color/white}"
         android:paddingHorizontal="@dimen/dimen_m"
         android:paddingVertical="@dimen/dimen_l">
 
@@ -31,7 +31,7 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
             android:onClick="@{() -> callback.onDayClick(model)}"
-            android:textColor="@color/white"
+            android:textColor="@{model.selected ? @color/white : @color/grey_dark_bg}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -44,7 +44,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/dimen_s"
             android:onClick="@{() -> callback.onDayClick(model)}"
-            android:textColor="@color/white"
+            android:textColor="@{model.selected ? @color/white : @color/grey_dark_bg}"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

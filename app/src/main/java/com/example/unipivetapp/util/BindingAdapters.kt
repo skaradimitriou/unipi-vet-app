@@ -58,12 +58,18 @@ fun TextView.setWorkingExperience(experience: Int?) {
 }
 
 @BindingAdapter("setCalendarDayOfMonth")
-fun TextView.setCalendarDayOfMonth(date: LocalDate) {
-    text = date.dayOfMonth.toString()
+fun TextView.setCalendarDayOfMonth(date: LocalDate?) {
+    text = date?.dayOfMonth.toString()
 }
 
 @BindingAdapter("setDayOfMonth")
-fun TextView.setDayOfMonth(date: LocalDate) {
+fun TextView.setDayOfMonth(date: LocalDate?) {
     val format1 = DateTimeFormatter.ofPattern("EEE")
-    text = date.format(format1)
+    text = date?.format(format1).toString()
+}
+
+@BindingAdapter("setAppointmentDate")
+fun TextView.setAppointmentDate(date: LocalDate?) {
+    val format1 = DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy")
+    text = date?.format(format1).toString()
 }

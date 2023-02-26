@@ -31,6 +31,9 @@ class CalendarViewModel @Inject constructor(
 
     private val _times = MutableLiveData<List<TimeSlot>>()
 
+    private var selectedDay: Day? = null
+    private var selectedTimeslot: TimeSlot? = null
+
     init {
         getDays()
         getAllTimeIntervals()
@@ -77,5 +80,13 @@ class CalendarViewModel @Inject constructor(
             TimeSlot("20:30")
         )
         _times.postValue(timeIntervals)
+    }
+
+    fun getSelectedDay() {
+
+    }
+
+    fun getSelectedSlot() {
+
     }
 }

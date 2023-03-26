@@ -6,3 +6,4 @@ const val APPOINTMENTS_DB_PATH = "appointments"
 
 
 const val UUID = "uuid"
+const val DATE_AND_TIME = "appointmentDateAndTime"

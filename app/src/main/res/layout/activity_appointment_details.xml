@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="appointment"
+            type="com.example.domain.models.AppointmentInfo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_bg"
+        android:padding="@dimen/dimen_m"
+        tools:context=".ui.appointmentdetails.AppointmentDetailsActivity">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/vetCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_l"
+            app:cardCornerRadius="@dimen/dimen_10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dimen_m">
+
+                <TextView
+                    android:id="@+id/doctorNameTxtView"
+                    style="@style/text_18_bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dimen_s"
+                    android:text="@{appointment.vet.fullName}"
+                    app:layout_constraintEnd_toStartOf="@id/docImgView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/dummy_doc_fullname" />
+
+                <TextView
+                    android:id="@+id/docCategoryTxtView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{appointment.vet.category}"
+                    app:layout_constraintEnd_toStartOf="@id/docImgView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/doctorNameTxtView"
+                    tools:text="@string/dummy_doc_category" />
+
+                <RatingBar
+                    android:id="@+id/docRating"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_s"
+                    android:progressTint="@color/orange"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/docCategoryTxtView"
+                    app:setVetRating="@{appointment.vet.rating}" />
+
+                <TextView
+                    android:id="@+id/docExpHeader"
+                    style="@style/text_16_bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dimen_10"
+                    android:text="@string/doc_experience"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/docRating" />
+
+                <TextView
+                    android:id="@+id/docExperience"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/docExpHeader"
+                    app:setWorkingExperience="@{appointment.vet.experience}"
+                    tools:text="@string/dummy_doc_experience" />
+
+                <ImageView
+                    android:id="@+id/docImgView"
+                    android:layout_width="@dimen/dimen_100"
+                    android:layout_height="0dp"
+                    android:contentDescription="@{appointment.vet.fullName}"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:setProfileImage="@{appointment.vet.image}"
+                    tools:src="@drawable/profile_placeholder" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/appointmentCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_l"
+            app:cardCornerRadius="@dimen/dimen_10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vetCardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dimen_m">
+
+                <TextView
+                    android:id="@+id/appointmentTxtView"
+                    style="@style/text_18_bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dimen_s"
+                    android:text="@string/my_appointment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dateTxtView"
+                    style="@style/text_16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/appointmentTxtView"
+                    app:setAppointmentInfoDate="@{appointment.appointmentDateAndTime}"
+                    tools:text="@string/dummy_appointment_date" />
+
+                <TextView
+                    android:id="@+id/timeTxtView"
+                    style="@style/text_16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dimen_s"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dateTxtView"
+                    app:setAppointmentInfoTime="@{appointment.appointmentDateAndTime}"
+                    tools:text="@string/dummy_appointment_time" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/continueBtn"
+            style="@style/AppButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/dimen_l"
+            android:text="Συνέχεια"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

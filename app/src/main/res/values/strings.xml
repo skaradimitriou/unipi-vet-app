@@ -4,6 +4,7 @@
     <!-- General -->
     <string name="lorem_ipsum">Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. </string>
     <string name="continue_btn">Συνέχεια</string>
+    <string name="cancel">Άκυρο</string>
 
     <!-- Login Screen -->
     <string name="email_hint">E-mail</string>
@@ -67,5 +68,11 @@
     <!-- Appointment Result -->
     <string name="appointment_saved">Το Ραντεβού σου αποθηκεύτηκε</string>
     <string name="appointment_saved_desc">Θα μπορείς πλέον να δεις το ραντεβού σου απο την κατηγορία ραντεβού</string>
+
+    <!-- Appointment Details -->
+    <string name="appointment_info_details">Πληροφορίες Ραντεβού</string>
+    <string name="appointment_details_bs_title">Θέλετε να ακυρώσετε το ραντεβού;</string>
+    <string name="appointment_details_bs_cancel">Ακύρωση</string>
+
 
 </resources>

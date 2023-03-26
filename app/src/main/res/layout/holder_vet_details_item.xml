@@ -30,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/round_corners_top"
+            android:backgroundTint="@color/grey_bg"
             android:paddingHorizontal="@dimen/dimen_m"
             app:layout_constraintBottom_toBottomOf="@id/doctor_img"
             app:layout_constraintStart_toStartOf="parent">

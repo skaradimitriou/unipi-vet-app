@@ -1,4 +1,4 @@
-package com.example.domain.usecases
+package com.example.domain.usecases.appointments
 
 import com.example.domain.models.Appointment
 import com.example.domain.models.Result

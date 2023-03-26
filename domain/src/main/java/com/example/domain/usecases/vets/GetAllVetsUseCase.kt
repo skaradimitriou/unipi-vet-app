@@ -1,4 +1,4 @@
-package com.example.domain.usecases
+package com.example.domain.usecases.vets
 
 import com.example.domain.models.Vet
 import com.example.domain.repositories.VetReponsitory

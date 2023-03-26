@@ -1,13 +1,20 @@
 package com.example.unipivetapp.ui.dashboard.appointments
 
+import android.app.Activity
+import android.content.Intent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseFragment
 import com.example.unipivetapp.databinding.FragmentAppointmentsBinding
+import com.example.unipivetapp.ui.appointmentdetails.AppointmentDetailsActivity
 import com.example.unipivetapp.ui.dashboard.appointments.adapter.AppointmentsAdapter
+import com.example.unipivetapp.util.APPOINTMENT
 import com.example.unipivetapp.util.ext.setScreenTitle
+import com.example.unipivetapp.util.ext.showSnackbar
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class AppointmentsFragment :
@@ -15,9 +22,21 @@ class AppointmentsFragment :
 
     private val viewModel: AppointmentsViewModel by viewModels()
 
+    @Inject
+    lateinit var gson: Gson
+
+    private val activityTask = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == Activity.RESULT_OK) {
+            binding.showSnackbar("Το ραντεβού ακυρώθηκε")
+        }
+    }
+
     private val adapter = AppointmentsAdapter { selectedAppointment ->
-        Timber.d("selectedAppointment => $selectedAppointment")
-        //FIXME: Open Appointment Details Activity later on
+        val intent = Intent(requireContext(), AppointmentDetailsActivity::class.java).apply {
+            val appointment = gson.toJson(selectedAppointment)
+            putExtra(APPOINTMENT, appointment)
+        }
+        activityTask.launch(intent)
     }
 
     override fun init() {
@@ -37,7 +56,5 @@ class AppointmentsFragment :
         }
     }
 
-    override fun stopOps() {
-
-    }
+    override fun stopOps() {}
 }

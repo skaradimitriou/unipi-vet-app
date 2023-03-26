@@ -1,4 +1,4 @@
-package com.example.unipivetapp.ui.dashboard.appointments
+package com.example.unipivetapp.ui.appointmentdetails
 
 import android.app.Application
 import androidx.lifecycle.LiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.AppointmentInfo
 import com.example.domain.models.Result
-import com.example.domain.usecases.appointments.GetMyAppointmentsUseCase
+import com.example.domain.usecases.appointments.DeleteAppointmentUseCase
 import com.example.unipivetapp.base.BaseViewModel
 import com.example.unipivetapp.di.IoDispatcher
 import com.example.unipivetapp.util.auth.Authenticator
@@ -16,23 +16,27 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AppointmentsViewModel @Inject constructor(
+class AppointmentDetailsViewModel @Inject constructor(
     app: Application,
     private val auth: Authenticator,
     @IoDispatcher private val dispatcher: CoroutineDispatcher,
-    private val useCase: GetMyAppointmentsUseCase
+    private val useCase: DeleteAppointmentUseCase
 ) : BaseViewModel(app) {
 
-    val appointments: LiveData<Result<List<AppointmentInfo>>>
-        get() = _appointments
+    val appointmentDeleted: LiveData<Result<Boolean>>
+        get() = _appointmentDeleted
 
-    private val _appointments = MutableLiveData<Result<List<AppointmentInfo>>>()
+    private val _appointmentDeleted = MutableLiveData<Result<Boolean>>()
 
-    fun getMyAppointments() {
+    var appointment: AppointmentInfo? = null
+
+    fun cancelAppointment() {
         viewModelScope.launch(dispatcher) {
             val uuid = auth.getActiveUser()?.uid.toString()
-            val result = useCase.getMyAppointments(uuid)
-            _appointments.postValue(result)
+            appointment?.let {
+                val result = useCase.deleteAppointment(it, uuid)
+                _appointmentDeleted.postValue(result)
+            }
         }
     }
 }

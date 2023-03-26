@@ -1,7 +1,7 @@
 package com.example.domain.di
 
 import com.example.domain.repositories.VetReponsitory
-import com.example.domain.usecases.GetAllVetsUseCase
+import com.example.domain.usecases.vets.GetAllVetsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

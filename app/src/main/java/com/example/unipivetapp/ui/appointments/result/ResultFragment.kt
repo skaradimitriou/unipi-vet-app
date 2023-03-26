@@ -22,11 +22,6 @@ class ResultFragment : BaseFragment<FragmentResultBinding>(R.layout.fragment_res
         }
     }
 
-    override fun startOps() {
-
-    }
-
-    override fun stopOps() {
-        //
-    }
+    override fun startOps() {}
+    override fun stopOps() {}
 }

@@ -3,6 +3,7 @@ package com.example.unipivetapp.di
 import com.example.unipivetapp.util.auth.AuthManager
 import com.example.unipivetapp.util.auth.Authenticator
 import com.google.firebase.auth.FirebaseAuth
+import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,4 +21,8 @@ object AppModule {
     @Provides
     @Singleton
     fun provideAuthenticator(auth: FirebaseAuth): Authenticator = AuthManager(auth)
+
+    @Provides
+    @Singleton
+    fun provideGson(): Gson = Gson()
 }

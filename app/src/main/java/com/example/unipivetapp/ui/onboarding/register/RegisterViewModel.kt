@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.domain.usecases.StoreUserDataUseCase
+import com.example.domain.usecases.profile.StoreUserDataUseCase
 import com.example.domain.models.Result
 import com.example.unipivetapp.base.BaseViewModel
 import com.example.unipivetapp.di.IoDispatcher

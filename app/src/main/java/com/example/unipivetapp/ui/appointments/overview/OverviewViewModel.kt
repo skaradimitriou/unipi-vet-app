@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.domain.models.Appointment
 import com.example.domain.models.Result
 import com.example.domain.models.Vet
-import com.example.domain.usecases.StoreAppointmentUseCase
+import com.example.domain.usecases.appointments.StoreAppointmentUseCase
 import com.example.unipivetapp.base.BaseViewModel
 import com.example.unipivetapp.di.IoDispatcher
 import com.example.unipivetapp.util.auth.Authenticator

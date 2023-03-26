@@ -10,4 +10,6 @@ interface AppointmentRepository {
     suspend fun saveAppointment(appointment: Appointment, vet: Vet, userId: String): Result<Boolean>
 
     suspend fun getMyAppointments(uuid: String): Result<List<AppointmentInfo>>
+
+    suspend fun deleteAppointment(appointment: AppointmentInfo, userId: String): Result<Boolean>
 }

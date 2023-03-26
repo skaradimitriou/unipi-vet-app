@@ -3,6 +3,7 @@ package com.example.data.repositories
 import com.example.data.mappers.AppointmentsMapper
 import com.example.data.models.AppointmentDto
 import com.example.data.util.APPOINTMENTS_DB_PATH
+import com.example.data.util.DATE_AND_TIME
 import com.example.data.util.UUID
 import com.example.data.util.toListOf
 import com.example.domain.models.Appointment
@@ -11,6 +12,7 @@ import com.example.domain.models.Result
 import com.example.domain.models.Vet
 import com.example.domain.repositories.AppointmentRepository
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
@@ -52,5 +54,17 @@ class AppointmentRepositoryImpl @Inject constructor(
             .toListOf<AppointmentDto>()
 
         return Result.Success(AppointmentsMapper.toDomainModel(result))
+    }
+
+    override suspend fun deleteAppointment(
+        appointment: AppointmentInfo,
+        userId: String
+    ): Result<Boolean> {
+        var result: Result<Boolean> = Result.Loading()
+
+        //FIXME: Add delete capability
+        delay(1500)
+
+        return Result.Success(true)
     }
 }

@@ -6,7 +6,9 @@ import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseFragment
 import com.example.unipivetapp.databinding.FragmentProfileBinding
 import com.example.unipivetapp.ui.dashboard.profile.adapter.ProfileOptionsAdapter
+import com.example.unipivetapp.ui.editprofile.EditProfileActivity
 import com.example.unipivetapp.ui.onboarding.OnboardingActivity
+import com.example.unipivetapp.util.ext.addAppBarMenu
 import com.example.unipivetapp.util.ext.askUserForAction
 import com.example.unipivetapp.util.ext.setScreenTitle
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,9 +29,12 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
 
     override fun init() {
         setScreenTitle(getString(R.string.profile_title))
-
-        binding.viewModel = viewModel
-        binding.profileDetailsRecycler.adapter = adapter
+        addAppBarMenu(menuId = R.menu.profile_screen_menu) { selectedAction ->
+            if (selectedAction == R.id.nav_edit_profile) {
+                startActivity(Intent(requireContext(), EditProfileActivity::class.java))
+            }
+        }
+        binding.adapter = adapter
     }
 
     override fun startOps() {

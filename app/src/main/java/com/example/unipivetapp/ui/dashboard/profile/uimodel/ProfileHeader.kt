@@ -14,7 +14,7 @@ data class ProfileHeader(
 
 data class ProfileOption(
     val title: String,
-    val value: String,
+    val value: String
 ) : UiModel {
     override fun equalsContent(obj: UiModel): Boolean = when (obj) {
         is ProfileOption -> title == obj.title && value == obj.value

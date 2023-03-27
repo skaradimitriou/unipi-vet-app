@@ -7,21 +7,21 @@
 
         <variable
             name="adapter"
-            type="com.example.unipivetapp.ui.dashboard.profile.adapter.ProfileOptionsAdapter" />
+            type="com.example.unipivetapp.ui.editprofile.adapter.EditProfileAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.dashboard.profile.ProfileFragment">
+        tools:context=".ui.editprofile.EditProfileActivity">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/profileDetailsRecycler"
+            android:id="@+id/editProfileRecycler"
             style="@style/AppRecycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:adapter="@{adapter}"
+            android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

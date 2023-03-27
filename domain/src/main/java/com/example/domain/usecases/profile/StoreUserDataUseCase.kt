@@ -6,5 +6,5 @@ import javax.inject.Inject
 class StoreUserDataUseCase @Inject constructor(
     private val repo: ProfileRepository
 ) {
-    suspend fun setProfileInfo(email: String, uuid: String) = repo.setProfileInfo(email, uuid)
+    suspend fun setProfileInfo(email: String, uuid: String) = repo.updateProfileInfo(email, uuid)
 }

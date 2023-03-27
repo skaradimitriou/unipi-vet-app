@@ -5,6 +5,7 @@
     <string name="lorem_ipsum">Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. </string>
     <string name="continue_btn">Συνέχεια</string>
     <string name="cancel">Άκυρο</string>
+    <string name="save">Αποθήκευση</string>
 
     <!-- Login Screen -->
     <string name="email_hint">E-mail</string>
@@ -44,7 +45,7 @@
     <string name="profile_dummy_username">foustanos</string>
     <string name="profile_option_title">title</string>
     <string name="profile_option_value">value</string>
-    <string name="profile_option_missing">Not provided yet.</string>
+    <string name="profile_option_missing">Δεν έχει δωθεί</string>
     <string name="ask_user_logout">Θέλετε να αποσυνδεθείτε;</string>
     <string name="email">E-mail</string>
     <string name="telephone">Telephone</string>
@@ -73,5 +74,7 @@
     <string name="appointment_details_bs_title">Θέλετε να ακυρώσετε το ραντεβού;</string>
     <string name="appointment_details_bs_cancel">Ακύρωση</string>
 
+    <!-- Edit Profile Screen -->
+    <string name="edit_profile_title">Επεξεργασία Προφίλ</string>
 
 </resources>

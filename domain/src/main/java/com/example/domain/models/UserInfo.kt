@@ -7,4 +7,9 @@ data class UserInfo(
     val email: String,
     val userImg: String,
     val username: String
-)
+) : UiModel {
+    override fun equalsContent(obj: UiModel): Boolean = when (obj) {
+        is UserInfo -> email == obj.email && username == obj.username
+        else -> false
+    }
+}

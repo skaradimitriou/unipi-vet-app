@@ -1,16 +1,20 @@
 package com.example.unipivetapp.util
 
-import android.widget.EditText
+import android.view.View
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.viewpager2.widget.CompositePageTransformer
+import androidx.viewpager2.widget.MarginPageTransformer
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.unipivetapp.R
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
+import kotlin.math.abs
 
 /**
  * This file contains the binding adapters that are used across the app
@@ -90,4 +94,15 @@ fun TextView.setAppointmentInfoTime(time: String) {
     val outputTime = input.parse(time)
     val sdf = SimpleDateFormat("HH:mm")
     text = sdf.format(outputTime).toString()
+}
+
+@BindingAdapter("setViewPagerPageTransformer")
+fun ViewPager2.setViewPagerPageTransformer(shouldBeSet : Boolean) {
+    val compositePageTransformer = CompositePageTransformer()
+    compositePageTransformer.addTransformer(MarginPageTransformer(40))
+    compositePageTransformer.addTransformer { page: View, position: Float ->
+        val r = 1 - abs(position)
+        page.scaleY = 0.85f + r * 0.15f
+    }
+    this.setPageTransformer(compositePageTransformer)
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="adapter"
+            type="com.example.unipivetapp.ui.dashboard.home.adapter.HomeFeaturedAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_l">
+
+        <TextView
+            android:id="@+id/featuredTxtView"
+            style="@style/text_16_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_m"
+            android:text="@string/home_announcements"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/featuredViewPager"
+            style="@style/AppRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_250"
+            android:layout_marginTop="@dimen/dimen_s"
+            android:adapter="@{adapter}"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/featuredTxtView"
+            app:setViewPagerPageTransformer="@{true}"
+            tools:listitem="@layout/holder_featured_child" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

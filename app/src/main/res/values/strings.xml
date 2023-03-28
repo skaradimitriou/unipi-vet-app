@@ -18,10 +18,15 @@
     <string name="register_btn">Εγγραφή</string>
 
     <!-- Main Screen Titles -->
-    <string name="home_title">Home</string>
-    <string name="vets_title">Vets</string>
-    <string name="appointments_title">Appointments</string>
+    <string name="home_title">Αρχική</string>
+    <string name="vets_title">Κτηνίατροι</string>
+    <string name="appointments_title">Ραντεβού</string>
     <string name="profile_title">Προφίλ</string>
+
+    <!-- Home Screen -->
+    <string name="home_user_greeting">Καλησπέρα</string>
+    <string name="home_announcements">Ανακοινώσεις</string>
+    <string name="home_popular">Δημοφιλή αποτελέσματα</string>
 
     <!-- Vets Screen -->
     <string name="vet_details_title">Πληροφορίες</string>

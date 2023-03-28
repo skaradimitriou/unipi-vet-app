@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.domain.models.Vet" />
+
+        <variable
+            name="callback"
+            type="com.example.unipivetapp.ui.dashboard.vets.VetCallback" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_m"
+        android:layout_marginVertical="@dimen/dimen_xs"
+        android:onClick="@{() -> callback.onVetClick(model)}"
+        app:cardCornerRadius="@dimen/dimen_10">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dimen_m">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/docImgView"
+                android:layout_width="@dimen/dimen_70"
+                android:layout_height="@dimen/dimen_70"
+                android:contentDescription="@{model.fullName}"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setProfileImage="@{model.image}"
+                tools:src="@drawable/profile_placeholder" />
+
+            <TextView
+                android:id="@+id/doctorNameTxtView"
+                style="@style/text_18_bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_m"
+                android:paddingBottom="@dimen/dimen_s"
+                android:text="@{model.fullName}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/docImgView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/dummy_doc_fullname" />
+
+            <RatingBar
+                android:id="@+id/docRatingBar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:progressTint="@color/orange"
+                app:layout_constraintStart_toStartOf="@id/doctorNameTxtView"
+                app:layout_constraintTop_toBottomOf="@id/doctorNameTxtView"
+                app:setVetRating="@{model.rating}" />
+
+            <TextView
+                android:id="@+id/docExpHeader"
+                style="@style/text_16_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:text="@string/doc_experience"
+                app:layout_constraintStart_toStartOf="@id/doctorNameTxtView"
+                app:layout_constraintTop_toBottomOf="@id/docRatingBar" />
+
+            <TextView
+                android:id="@+id/docExperience"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_s"
+                app:layout_constraintBottom_toBottomOf="@id/docExpHeader"
+                app:layout_constraintStart_toEndOf="@id/docExpHeader"
+                app:layout_constraintTop_toTopOf="@id/docExpHeader"
+                app:setWorkingExperience="@{model.experience}"
+                tools:text="@string/dummy_doc_experience" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pre_home_nav"
+    app:startDestination="@id/personalizeFragment">
+
+    <fragment
+        android:id="@+id/personalizeFragment"
+        android:name="com.example.unipivetapp.ui.prehome.personalize.PersonalizeFragment"
+        android:label="PersonalizeFragment" />
+    <fragment
+        android:id="@+id/additionalFragment"
+        android:name="com.example.unipivetapp.ui.prehome.additional.AdditionalFragment"
+        android:label="AdditionalFragment" />
+</navigation>

@@ -6,7 +6,7 @@ import com.example.domain.models.Result
 import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseFragment
 import com.example.unipivetapp.databinding.FragmentRegisterBinding
-import com.example.unipivetapp.ui.dashboard.DashboardActivity
+import com.example.unipivetapp.ui.prehome.PreHomeActivity
 import com.example.unipivetapp.util.ext.showSnackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,7 +41,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
     override fun stopOps() {}
 
     private fun goToDashboard() {
-        startActivity(Intent(requireContext(), DashboardActivity::class.java))
+        startActivity(Intent(requireContext(), PreHomeActivity::class.java))
         requireActivity().finish()
     }
 }

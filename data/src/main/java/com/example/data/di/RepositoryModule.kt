@@ -9,6 +9,7 @@ import com.example.domain.repositories.DashboardRepository
 import com.example.domain.repositories.ProfileRepository
 import com.example.domain.repositories.VetReponsitory
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.StorageReference
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,8 +25,10 @@ class RepositoryModule {
         VetRepositoryImpl(firestore)
 
     @Provides
-    fun provideProfileRepository(firestore: FirebaseFirestore): ProfileRepository =
-        ProfileRepositoryImpl(firestore)
+    fun provideProfileRepository(
+        firestore: FirebaseFirestore,
+        storageReference: StorageReference
+    ): ProfileRepository = ProfileRepositoryImpl(firestore, storageReference)
 
     @Provides
     fun provideAppointmentRepository(firestore: FirebaseFirestore): AppointmentRepository =

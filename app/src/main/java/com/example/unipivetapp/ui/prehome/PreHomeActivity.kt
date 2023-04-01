@@ -7,10 +7,13 @@ import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseActivity
 import com.example.unipivetapp.databinding.ActivityPreHomeBinding
 import com.example.unipivetapp.ui.prehome.navigator.PreHomeNavigatorImpl
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PreHomeActivity : BaseActivity<ActivityPreHomeBinding>(R.layout.activity_pre_home) {
 
     private val viewModel: PreHomeViewModel by viewModels()
+    private val sharedViewModel: PreHomeViewModel by viewModels()
 
     private lateinit var navController: NavController
     private lateinit var navigator: PreHomeNavigatorImpl

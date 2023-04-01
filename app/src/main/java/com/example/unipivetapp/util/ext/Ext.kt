@@ -1,6 +1,7 @@
 package com.example.unipivetapp.util.ext
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Build.VERSION.SDK_INT
 import android.os.Parcelable
 import android.widget.TextView
@@ -10,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.io.ByteArrayOutputStream
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 

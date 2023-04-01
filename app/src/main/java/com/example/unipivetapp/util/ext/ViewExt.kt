@@ -1,10 +1,13 @@
 package com.example.unipivetapp.util.ext
 
+import android.app.Activity
 import android.content.Context
+import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -59,4 +62,17 @@ fun Context.askUserForAction(title: String, btnTitle: String, onPrimaryBtnClick:
             dismiss()
         }
     }.show()
+}
+
+/**
+ * Helper fun to simplify the activity result api for Camera purposes.
+ */
+
+fun Fragment.onSuccessCameraResult(data: (Bitmap?) -> Unit) = registerForActivityResult(
+    ActivityResultContracts.StartActivityForResult()
+) { result ->
+    if (result.resultCode == Activity.RESULT_OK) {
+        val bitmap = result.data?.extras?.get("data") as? Bitmap
+        data.invoke(bitmap)
+    }
 }

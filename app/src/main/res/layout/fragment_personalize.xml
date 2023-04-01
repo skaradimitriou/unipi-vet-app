@@ -6,7 +6,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey_bg"
         tools:context=".ui.prehome.personalize.PersonalizeFragment">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -22,35 +21,35 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/emailTxtView"
+            android:id="@+id/usernameTxtView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dimen_xl"
             android:layout_marginTop="@dimen/dimen_xl"
-            android:text="Username"
+            android:text="@string/username"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/profileUserImgView" />
 
         <EditText
-            android:id="@+id/emailEditTxt"
+            android:id="@+id/usernameEditTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Όρισε το username σου"
+            android:hint="@string/username"
             android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="@id/emailTxtView"
-            app:layout_constraintStart_toStartOf="@id/emailTxtView"
-            app:layout_constraintTop_toBottomOf="@id/emailTxtView" />
+            app:layout_constraintEnd_toEndOf="@id/usernameTxtView"
+            app:layout_constraintStart_toStartOf="@id/usernameTxtView"
+            app:layout_constraintTop_toBottomOf="@id/usernameTxtView" />
 
         <Button
-            android:id="@+id/saveBtn"
+            android:id="@+id/continueBtn"
             style="@style/AppButton"
             android:layout_width="0dp"
             android:layout_height="@dimen/button_height"
             android:layout_margin="@dimen/dimen_l"
             android:layout_marginTop="@dimen/dimen_l"
-            android:text="@string/save"
+            android:text="@string/continue_btn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

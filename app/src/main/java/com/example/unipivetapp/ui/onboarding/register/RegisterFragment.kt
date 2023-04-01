@@ -29,10 +29,10 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
         viewModel.registrationResult.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Result.Loading -> binding.registerBtn.isEnabled = false
-                is Result.Success -> goToDashboard()
+                is Result.Success -> goToAppOnboarding()
                 is Result.Failure -> {
                     binding.showSnackbar(result.error.toString())
-                    binding.registerBtn.isEnabled = false
+                    binding.registerBtn.isEnabled = true
                 }
             }
         }
@@ -40,7 +40,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
 
     override fun stopOps() {}
 
-    private fun goToDashboard() {
+    private fun goToAppOnboarding() {
         startActivity(Intent(requireContext(), PreHomeActivity::class.java))
         requireActivity().finish()
     }

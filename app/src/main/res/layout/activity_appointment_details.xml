@@ -155,7 +155,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/button_height"
             android:layout_marginTop="@dimen/dimen_l"
-            android:text="Συνέχεια"
+            android:text="@string/cancel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

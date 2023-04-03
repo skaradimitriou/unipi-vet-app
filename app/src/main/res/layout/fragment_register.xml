@@ -11,13 +11,13 @@
         android:padding="@dimen/dimen_m"
         tools:context=".ui.onboarding.register.RegisterFragment">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/register_img"
             android:layout_width="@dimen/dimen_70"
             android:layout_height="@dimen/dimen_70"
             android:layout_marginTop="@dimen/dimen_xl"
-            android:background="@mipmap/ic_launcher"
             android:contentDescription="@null"
+            android:src="@mipmap/myvet_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

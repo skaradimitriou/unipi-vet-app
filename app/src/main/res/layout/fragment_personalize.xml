@@ -35,7 +35,7 @@
         <EditText
             android:id="@+id/usernameEditTxt"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/input_field_height"
             android:hint="@string/username"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="@id/usernameTxtView"

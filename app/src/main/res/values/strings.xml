@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UnipiVetApp</string>
+    <string name="app_name">myVet</string>
 
     <!-- General -->
     <string name="lorem_ipsum">Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. </string>
@@ -21,7 +21,6 @@
     <string name="pre_home_additionals_title">Πρόσθετες Πληροφορίες</string>
     <string name="additionals_subheader">Συμπλήρωσε τα στοιχεία του προφίλ σου</string>
     <string name="username">Username</string>
-
 
     <!-- Main Screen Titles -->
     <string name="home_title">Αρχική</string>

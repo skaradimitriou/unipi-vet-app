@@ -9,6 +9,7 @@
 
     <!-- App General Dimensions -->
     <dimen name="button_height">56dp</dimen>
+    <dimen name="input_field_height">56dp</dimen>
 
     <dimen name="dimen_xs">4dp</dimen>
     <dimen name="dimen_s">8dp</dimen>

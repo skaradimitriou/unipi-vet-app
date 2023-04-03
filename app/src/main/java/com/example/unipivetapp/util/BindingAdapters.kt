@@ -24,11 +24,11 @@ import kotlin.math.abs
 fun ImageView.setImageFromUrl(url: String?) {
     try {
         Glide.with(this).load(url)
-            .placeholder(R.mipmap.ic_launcher)
-            .error(R.mipmap.ic_launcher)
+            .placeholder(R.mipmap.myvet_logo)
+            .error(R.mipmap.myvet_logo)
             .into(this)
     } catch (e: Exception) {
-        setImageResource(R.mipmap.ic_launcher)
+        setImageResource(R.mipmap.myvet_logo)
     }
 }
 

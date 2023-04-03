@@ -9,11 +9,11 @@
         android:background="@color/sand_bg"
         tools:context=".ui.onboarding.intro.IntroFragment">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/splashImgView"
             android:layout_width="@dimen/dimen_4xl"
             android:layout_height="@dimen/dimen_4xl"
-            android:src="@mipmap/ic_launcher"
+            android:src="@mipmap/myvet_logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -16,5 +16,6 @@
     <color name="orange">#FF731D</color>
     <color name="grey_bg">#e5e5e5</color>
     <color name="grey_dark_bg">#333333</color>
+    <color name="black_opacity_80">#80000000</color>
 
 </resources>

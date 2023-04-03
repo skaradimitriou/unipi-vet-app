@@ -20,6 +20,19 @@ class ProfileRepositoryImpl @Inject constructor(
     private val storage: StorageReference
 ) : ProfileRepository {
 
+    override suspend fun setProfilePhoto(userImg: Bitmap, uuid: String) {
+        val storageRef = storage.child("pics/$uuid")
+        val image = userImg.compressBitmap()
+        val upload = storageRef.putBytes(image).await()
+        val downloadUrl = upload.metadata?.reference?.downloadUrl?.await().toString()
+
+        val data: HashMap<String, Any> = hashMapOf(
+            "userImg" to downloadUrl
+        )
+
+        firestore.collection(USERS_DB_PATH).document(uuid).update(data).await()
+    }
+
     override suspend fun setProfileInfo(
         userData: UserData,
         userImg: Bitmap,
@@ -58,7 +71,7 @@ class ProfileRepositoryImpl @Inject constructor(
         val updatedData: HashMap<String, Any> = hashMapOf(
             "firstName" to data.firstName,
             "lastName" to data.lastName,
-            "email" to data.email,
+            "username" to data.username,
             "telephone" to data.telephone
         )
 

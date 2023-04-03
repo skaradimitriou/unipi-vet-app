@@ -1,17 +1,16 @@
 package com.example.unipivetapp.util.ext
 
 import android.content.Intent
-import android.graphics.Bitmap
 import android.os.Build.VERSION.SDK_INT
 import android.os.Parcelable
 import android.widget.TextView
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.example.unipivetapp.R
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.io.ByteArrayOutputStream
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -37,5 +36,6 @@ fun Fragment.withDelay(time: Long, action: () -> Unit) {
 
 fun TextView.setMonthName() {
     val format = DateTimeFormatter.ofPattern("MMMM")
-    text = LocalDate.now()?.format(format).toString()
+    val month = LocalDate.now()?.format(format).toString()
+    text = context.getString(R.string.appointment_month_placeholder, month)
 }

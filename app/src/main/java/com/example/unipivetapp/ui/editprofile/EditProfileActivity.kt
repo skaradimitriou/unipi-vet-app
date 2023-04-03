@@ -1,11 +1,16 @@
 package com.example.unipivetapp.ui.editprofile
 
+import android.content.Intent
+import android.provider.MediaStore
 import android.view.MenuItem
 import androidx.activity.viewModels
+import com.example.domain.models.UpdateUserInfo
 import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseActivity
 import com.example.unipivetapp.databinding.ActivityEditProfileBinding
 import com.example.unipivetapp.ui.editprofile.adapter.EditProfileAdapter
+import com.example.unipivetapp.ui.editprofile.adapter.EditProfileScreenCallback
+import com.example.unipivetapp.util.ext.onSuccessCameraResult
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -14,8 +19,15 @@ class EditProfileActivity :
 
     private val viewModel: EditProfileViewModel by viewModels()
 
-    private val adapter = EditProfileAdapter { updatedData ->
-        viewModel.saveUserData(updatedData)
+    private val adapter = EditProfileAdapter(object : EditProfileScreenCallback {
+        override fun onImageClick() = capturePhoto()
+        override fun onSaveButtonClick(userInfo: UpdateUserInfo) = viewModel.saveUserData(userInfo)
+    })
+
+    private val cameraIntent = onSuccessCameraResult { bitmap ->
+        bitmap?.let {
+            viewModel.saveUserPhoto(it)
+        }
     }
 
     override fun init() {
@@ -37,6 +49,11 @@ class EditProfileActivity :
     }
 
     override fun stopOps() {}
+
+    private fun capturePhoto() {
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        cameraIntent.launch(intent)
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         android.R.id.home -> {

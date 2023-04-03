@@ -1,6 +1,7 @@
 package com.example.unipivetapp.ui.editprofile
 
 import android.app.Application
+import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -8,6 +9,7 @@ import com.example.domain.models.UiModel
 import com.example.domain.models.UpdateUserInfo
 import com.example.domain.models.UserInfo
 import com.example.domain.usecases.profile.GetProfileInfoUseCase
+import com.example.domain.usecases.profile.SetProfilePhotoUseCase
 import com.example.domain.usecases.profile.UpdateProfileUseCase
 import com.example.unipivetapp.base.BaseViewModel
 import com.example.unipivetapp.di.IoDispatcher
@@ -24,7 +26,8 @@ class EditProfileViewModel @Inject constructor(
     @IoDispatcher val dispatcher: CoroutineDispatcher,
     private val authenticator: Authenticator,
     private val getProfileUseCase: GetProfileInfoUseCase,
-    private val updateProfileUseCase: UpdateProfileUseCase
+    private val updateProfileUseCase: UpdateProfileUseCase,
+    private val setProfilePhotoUseCase: SetProfilePhotoUseCase
 ) : BaseViewModel(app) {
 
     val userInfo: LiveData<List<UiModel>>
@@ -54,6 +57,14 @@ class EditProfileViewModel @Inject constructor(
         viewModelScope.launch(dispatcher) {
             val uid = authenticator.getActiveUser()?.uid.toString()
             updateProfileUseCase.updateProfileInfo(data, uid)
+            _profileUpdated.postValue(true)
+        }
+    }
+
+    fun saveUserPhoto(bitmap: Bitmap) {
+        viewModelScope.launch(dispatcher) {
+            val uid = authenticator.getActiveUser()?.uid.toString()
+            setProfilePhotoUseCase.setProfilePhoto(bitmap, uid)
             _profileUpdated.postValue(true)
         }
     }

@@ -36,7 +36,7 @@
             style="@style/text_18_bold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/dimen_m"
+            android:paddingHorizontal="@dimen/dimen_m"
             app:layout_constraintBottom_toBottomOf="@id/calendarImgView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/calendarImgView"

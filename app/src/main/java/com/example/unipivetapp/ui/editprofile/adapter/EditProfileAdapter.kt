@@ -2,12 +2,11 @@ package com.example.unipivetapp.ui.editprofile.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.models.UiModel
+import com.example.domain.models.UpdateUserInfo
 import com.example.domain.models.UserInfo
-import com.example.unipivetapp.BR
 import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseViewHolder
 import com.example.unipivetapp.base.DiffUtilClass
@@ -16,7 +15,6 @@ import com.example.unipivetapp.databinding.HolderEditProfileSaveBinding
 import com.example.unipivetapp.databinding.HolderEmptyItemBinding
 import com.example.unipivetapp.databinding.HolderProfileHeaderBinding
 import com.example.unipivetapp.ui.dashboard.profile.uimodel.ProfileHeader
-import com.example.domain.models.UpdateUserInfo
 
 class EditProfileAdapter(
     private val callback: EditProfileScreenCallback
@@ -27,7 +25,7 @@ class EditProfileAdapter(
         return when (viewType) {
             R.layout.holder_profile_header -> {
                 val view = HolderProfileHeaderBinding.inflate(inflater, parent, false)
-                EditProfileHeaderViewHolder(view)
+                EditProfileHeaderViewHolder(view, callback)
             }
             R.layout.holder_edit_profile_save -> {
                 val view = HolderEditProfileSaveBinding.inflate(inflater, parent, false)
@@ -54,12 +52,18 @@ class EditProfileAdapter(
 }
 
 class EditProfileHeaderViewHolder(
-    private val binding: ViewDataBinding,
+    private val binding: HolderProfileHeaderBinding,
+    private val callback: EditProfileScreenCallback
 ) : BaseViewHolder(binding) {
 
     override fun present(data: UiModel) {
         when (data) {
-            is ProfileHeader -> binding.setVariable(BR.model, data)
+            is ProfileHeader -> {
+                binding.model = data
+                binding.profileUserImgView.setOnClickListener {
+                    callback.onImageClick()
+                }
+            }
         }
     }
 }
@@ -78,7 +82,7 @@ class EditProfileViewHolder(
                         firstName = binding.fNameEditTxt.text.toString(),
                         lastName = binding.lNameEditTxt.text.toString(),
                         telephone = binding.telEditTxt.text.toString(),
-                        email = binding.emailEditTxt.text.toString()
+                        username = binding.usernameEditTxt.text.toString()
                     )
                     callback.onSaveButtonClick(updatedData)
                 }
@@ -87,6 +91,7 @@ class EditProfileViewHolder(
     }
 }
 
-fun interface EditProfileScreenCallback {
+interface EditProfileScreenCallback {
+    fun onImageClick()
     fun onSaveButtonClick(userInfo: UpdateUserInfo)
 }

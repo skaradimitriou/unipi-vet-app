@@ -18,22 +18,21 @@
         android:paddingHorizontal="@dimen/dimen_10">
 
         <TextView
-            android:id="@+id/emailTxtView"
+            android:id="@+id/usernameTxtView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/email"
+            android:text="@string/username"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/emailEditTxt"
+            android:id="@+id/usernameEditTxt"
             android:layout_width="match_parent"
             android:layout_height="@dimen/input_field_height"
-            android:inputType="textEmailAddress"
-            android:text="@{model.email}"
+            android:text="@{model.username}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/emailTxtView"
+            app:layout_constraintTop_toBottomOf="@id/usernameTxtView"
             tools:text="@string/profile_option_value" />
 
         <TextView
@@ -44,14 +43,14 @@
             android:text="@string/telephone"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/emailEditTxt" />
+            app:layout_constraintTop_toBottomOf="@id/usernameEditTxt" />
 
         <EditText
             android:id="@+id/telEditTxt"
             android:layout_width="match_parent"
             android:layout_height="@dimen/input_field_height"
-            android:paddingTop="@dimen/dimen_10"
             android:maxLength="10"
+            android:paddingTop="@dimen/dimen_10"
             android:text="@{model.telephone}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/telephoneTxtView"

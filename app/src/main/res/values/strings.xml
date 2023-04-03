@@ -65,6 +65,7 @@
 
     <!--Appointments -->
     <string name="appointment_title">Ορισμός Ραντεβού</string>
+    <string name="appointment_month_placeholder">Ραντεβού %s</string>
     <string name="overview_title">Επισκόπηση</string>
     <string name="result_title">Επιτυχία</string>
 

@@ -35,6 +35,7 @@
 
     <!-- Vets Screen -->
     <string name="vet_details_title">Πληροφορίες</string>
+    <string name="search_action">Search</string>
     <string name="dummy_doc_fullname">Manthos Foustanos</string>
     <string name="dummy_doc_category">VET</string>
     <string name="doc_experience">Experience</string>

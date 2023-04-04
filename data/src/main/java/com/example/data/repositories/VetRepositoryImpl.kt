@@ -22,4 +22,14 @@ class VetRepositoryImpl @Inject constructor(
 
         return VetMapper.toDomainModel(result)
     }
+
+    override suspend fun searchByName(name: String): List<Vet> {
+        val result = firestore.collection(VETS_DB_PATH)
+            .get()
+            .await()
+            .toListOf<VetDto>()
+
+        val mappedData = VetMapper.toDomainModel(result)
+        return mappedData.toMutableList().filter { it.fullName.contains(name) }
+    }
 }

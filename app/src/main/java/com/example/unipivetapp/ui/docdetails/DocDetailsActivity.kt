@@ -8,6 +8,8 @@ import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseActivity
 import com.example.unipivetapp.databinding.ActivityDocDetailsBinding
 import com.example.unipivetapp.ui.appointments.AppointmentsActivity
+import com.example.unipivetapp.ui.ratings.RatingsActivity
+import com.example.unipivetapp.util.DOC_ID
 import com.example.unipivetapp.util.VET
 import com.example.unipivetapp.util.ext.getParcelable
 
@@ -15,8 +17,10 @@ class DocDetailsActivity : BaseActivity<ActivityDocDetailsBinding>(R.layout.acti
 
     private val viewModel: DocDetailsViewModel by viewModels()
     private val adapter = DocDetailsAdapter(object : DocDetailsCallback {
-        override fun onReviewsClick() {
-            //FIXME: Open reviews activity
+        override fun onReviewsClick(docId: Int) {
+            startActivity(Intent(this@DocDetailsActivity, RatingsActivity::class.java).apply {
+                putExtra(DOC_ID, docId)
+            })
         }
 
         override fun onAppointmentClick() {

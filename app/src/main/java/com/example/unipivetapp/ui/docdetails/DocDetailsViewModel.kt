@@ -32,15 +32,16 @@ class DocDetailsViewModel @Inject constructor(
 
     private fun Vet.toUiModel() = listOf(
         DocHeader(
-            image = this.image,
-            fullName = this.fullName,
-            category = this.category,
-            experience = this.experience,
-            rating = this.rating
+            image = image,
+            fullName = fullName,
+            category = category,
+            experience = experience,
+            rating = rating
         ),
         DocReview(
             title = getString(R.string.vet_reviews),
-            description = String.format(getString(R.string.vet_reviews_placeholder), this.fullName)
+            description = String.format(getString(R.string.vet_reviews_placeholder), fullName),
+            docId = id
         ),
         DocAppointment(
             title = getString(R.string.vet_appointment),

@@ -17,7 +17,8 @@ data class DocHeader(
 
 data class DocReview(
     val title: String,
-    val description: String
+    val description: String,
+    val docId: Int
 ) : UiModel {
     override fun equalsContent(obj: UiModel): Boolean = when (obj) {
         is DocReview -> title == obj.title && description == obj.description

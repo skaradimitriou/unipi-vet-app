@@ -89,4 +89,9 @@
     <!-- Edit Profile Screen -->
     <string name="edit_profile_title">Επεξεργασία Προφίλ</string>
 
+    <!-- Ratings Screen -->
+    <string name="ratings_screen_title">Αξιολογήσεις</string>
+    <string name="rating_item_title">This is a title</string>
+    <string name="rating_item_desc">This is a description</string>
+
 </resources>

@@ -1,19 +1,14 @@
 package com.example.data.di
 
-import com.example.data.repositories.AppointmentRepositoryImpl
-import com.example.data.repositories.DashboardRepositoryImpl
-import com.example.data.repositories.ProfileRepositoryImpl
-import com.example.data.repositories.VetRepositoryImpl
-import com.example.domain.repositories.AppointmentRepository
-import com.example.domain.repositories.DashboardRepository
-import com.example.domain.repositories.ProfileRepository
-import com.example.domain.repositories.VetReponsitory
+import com.example.data.repositories.*
+import com.example.domain.repositories.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.StorageReference
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 
 @Module
@@ -21,20 +16,29 @@ import dagger.hilt.components.SingletonComponent
 class RepositoryModule {
 
     @Provides
+    @Singleton
     fun provideVetRepository(firestore: FirebaseFirestore): VetReponsitory =
         VetRepositoryImpl(firestore)
 
     @Provides
+    @Singleton
     fun provideProfileRepository(
         firestore: FirebaseFirestore,
         storageReference: StorageReference
     ): ProfileRepository = ProfileRepositoryImpl(firestore, storageReference)
 
     @Provides
+    @Singleton
     fun provideAppointmentRepository(firestore: FirebaseFirestore): AppointmentRepository =
         AppointmentRepositoryImpl(firestore)
 
     @Provides
+    @Singleton
     fun provideDashboardRepository(firestore: FirebaseFirestore): DashboardRepository =
         DashboardRepositoryImpl(firestore)
+
+    @Provides
+    @Singleton
+    fun provideRatingsRepository(firestore: FirebaseFirestore): RatingsRepository =
+        RatingsRepositoryImpl(firestore)
 }

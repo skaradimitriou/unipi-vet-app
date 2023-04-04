@@ -7,18 +7,13 @@
 
         <variable
             name="model"
-            type="com.example.unipivetapp.ui.docdetails.uimodel.DocReview" />
-
-        <variable
-            name="callback"
-            type="com.example.unipivetapp.ui.docdetails.DocDetailsCallback" />
+            type="com.example.domain.models.Rating" />
     </data>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_m"
-        android:onClick="@{() -> callback.onReviewsClick(model.docId)}"
+        android:layout_margin="@dimen/dimen_s"
         app:cardCornerRadius="@dimen/dimen_10">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,26 +23,36 @@
 
             <TextView
                 android:id="@+id/titleTxtView"
-                style="@style/text_16_bold"
+                style="@style/text_18_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{model.title}"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="@tools:sample/lorem" />
+                tools:text="@string/rating_item_title" />
+
+            <RatingBar
+                android:id="@+id/docRating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_s"
+                android:progressTint="@color/orange"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+                app:setVetRating="@{model.value}" />
 
             <TextView
-                android:id="@+id/subtitleTxtView"
-                style="@style/text_16"
+                android:id="@+id/descriptionTxtView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_s"
                 android:text="@{model.description}"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/titleTxtView"
-                tools:text="@tools:sample/lorem" />
+                app:layout_constraintTop_toBottomOf="@id/docRating"
+                tools:text="@string/rating_item_desc" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
+
 </layout>

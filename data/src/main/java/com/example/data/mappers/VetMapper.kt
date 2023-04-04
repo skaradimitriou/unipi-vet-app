@@ -11,6 +11,7 @@ object VetMapper : Mapper<List<VetDto>?, List<Vet>> {
     }
 
     fun VetDto?.toDomainModel() = Vet(
+        id = this?.id.toNotNull(),
         category = this?.category.toNotNull(),
         experience = this?.experience.toNotNull(),
         firstName = this?.firstName.toNotNull(),

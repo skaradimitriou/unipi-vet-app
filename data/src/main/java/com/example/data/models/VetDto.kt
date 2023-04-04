@@ -8,5 +8,6 @@ data class VetDto(
     val fullName: String? = null,
     val image: String? = null,
     val mobileNo: String? = null,
-    val rating: Double? = null
+    val rating: Double? = null,
+    val id: Int? = null
 )

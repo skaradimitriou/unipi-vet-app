@@ -4,5 +4,7 @@ import com.example.domain.models.Rating
 
 interface RatingsRepository {
 
-    suspend fun getAllRatings(docId : Int): List<Rating>
+    suspend fun getAllRatings(docId: Int): List<Rating>
+
+    suspend fun setRating(rating: Rating)
 }

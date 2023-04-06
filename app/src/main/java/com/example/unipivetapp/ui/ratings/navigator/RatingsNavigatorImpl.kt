@@ -11,12 +11,17 @@ class RatingsNavigatorImpl(
     private val navController: NavController
 ) : RatingsNavigator {
 
-    override fun navigateTo(screenKey: RatingsLandingMode) = when (screenKey) {
-        RatingsLandingMode.ADD_NEW_RATING -> Unit
-        RatingsLandingMode.VIEW_ALL -> navController.navigate(R.id.allRatingsFragment)
+    override fun navigateTo(screenKey: RatingsAction) = when (screenKey) {
+        RatingsAction.ADD_NEW_RATING -> navController.navigate(R.id.addRatingFragment)
+        RatingsAction.NEW_RATING_ADDED -> goBackToAllRatings()
+        RatingsAction.VIEW_ALL -> navController.navigate(R.id.allRatingsFragment)
     }
 
     override fun goBack() {
         activity?.finish()
+    }
+
+    private fun goBackToAllRatings() {
+        navController.popBackStack()
     }
 }

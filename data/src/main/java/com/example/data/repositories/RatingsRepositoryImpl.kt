@@ -24,4 +24,8 @@ class RatingsRepositoryImpl @Inject constructor(
 
         return RatingsMapper.toDomainModel(result)
     }
+
+    override suspend fun setRating(rating: Rating) {
+        firestore.collection(RATINGS_DB_PATH).add(rating).await()
+    }
 }

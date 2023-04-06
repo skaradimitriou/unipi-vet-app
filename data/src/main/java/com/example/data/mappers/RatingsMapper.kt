@@ -11,7 +11,8 @@ object RatingsMapper : Mapper<List<RatingDto>?, List<Rating>> {
             Rating(
                 title = it.title.toNotNull(),
                 description = it.description.toNotNull(),
-                value = it.value.toNotNull()
+                value = it.value.toNotNull(),
+                doctorId = it.doctorId.toNotNull()
             )
         } ?: listOf()
     }

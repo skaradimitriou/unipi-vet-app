@@ -93,5 +93,12 @@
     <string name="ratings_screen_title">Αξιολογήσεις</string>
     <string name="rating_item_title">This is a title</string>
     <string name="rating_item_desc">This is a description</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_review_title">Νέα Κριτική</string>
+    <string name="title">Τίτλος</string>
+    <string name="additional_comments">Επιπλέον Σχόλια</string>
+    <string name="total_rating">Συνολική Βαθμολογία</string>
+    <string name="add_new_review">Προσθήκη νέας Κριτικής</string>
 
 </resources>

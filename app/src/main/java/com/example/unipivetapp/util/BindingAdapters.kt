@@ -97,7 +97,7 @@ fun TextView.setAppointmentInfoTime(time: String) {
 }
 
 @BindingAdapter("setViewPagerPageTransformer")
-fun ViewPager2.setViewPagerPageTransformer(shouldBeSet : Boolean) {
+fun ViewPager2.setViewPagerPageTransformer(shouldBeSet: Boolean) {
     val compositePageTransformer = CompositePageTransformer()
     compositePageTransformer.addTransformer(MarginPageTransformer(40))
     compositePageTransformer.addTransformer { page: View, position: Float ->
@@ -105,4 +105,14 @@ fun ViewPager2.setViewPagerPageTransformer(shouldBeSet : Boolean) {
         page.scaleY = 0.85f + r * 0.15f
     }
     this.setPageTransformer(compositePageTransformer)
+}
+
+@BindingAdapter("setRatingDescription")
+fun TextView.setRatingDescription(description: String) {
+    text = description
+    visibility = if (description.isNotEmpty()) {
+        View.VISIBLE
+    } else {
+        View.GONE
+    }
 }

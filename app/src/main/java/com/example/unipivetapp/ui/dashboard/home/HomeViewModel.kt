@@ -4,9 +4,9 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.domain.combiners.GetDashboardDataCombiner
 import com.example.domain.models.DashboardModel
 import com.example.domain.models.Result
-import com.example.domain.usecases.dashboard.GetDashboardDataUseCase
 import com.example.unipivetapp.base.BaseViewModel
 import com.example.unipivetapp.di.IoDispatcher
 import com.example.unipivetapp.util.auth.Authenticator
@@ -20,7 +20,7 @@ class HomeViewModel @Inject constructor(
     app: Application,
     @IoDispatcher val dispatcher: CoroutineDispatcher,
     private val authenticator: Authenticator,
-    private val useCase: GetDashboardDataUseCase
+    private val useCase: GetDashboardDataCombiner,
 ) : BaseViewModel(app) {
 
     val dashboardData: LiveData<Result<DashboardModel>>
@@ -28,12 +28,12 @@ class HomeViewModel @Inject constructor(
 
     private val _dashboardData = MutableLiveData<Result<DashboardModel>>()
 
-    fun test() {
+    fun getDashboardData() {
         _dashboardData.postValue(Result.Loading())
         viewModelScope.launch(dispatcher) {
             val uuid = authenticator.getActiveUser()?.uid ?: ""
-            val result = useCase.getDashboardData(uuid)
-            _dashboardData.postValue(result)
+            val data = useCase.getDashboardData(uuid)
+            _dashboardData.postValue(data)
         }
     }
 }

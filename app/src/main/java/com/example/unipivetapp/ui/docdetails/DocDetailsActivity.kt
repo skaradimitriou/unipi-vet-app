@@ -12,7 +12,9 @@ import com.example.unipivetapp.ui.ratings.RatingsActivity
 import com.example.unipivetapp.util.DOC_ID
 import com.example.unipivetapp.util.VET
 import com.example.unipivetapp.util.ext.getParcelable
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DocDetailsActivity : BaseActivity<ActivityDocDetailsBinding>(R.layout.activity_doc_details) {
 
     private val viewModel: DocDetailsViewModel by viewModels()
@@ -34,12 +36,13 @@ class DocDetailsActivity : BaseActivity<ActivityDocDetailsBinding>(R.layout.acti
         title = getString(R.string.vet_details_title)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.adapter = adapter
-        intent.getParcelable<Vet>(VET)?.let {
-            viewModel.displayVetDetails(it)
-        }
     }
 
     override fun startOps() {
+        intent.getParcelable<Vet>(VET)?.let {
+            viewModel.displayVetDetails(it)
+        }
+
         viewModel.vetInfo.observe(this) { vetInfo ->
             adapter.submitList(vetInfo)
         }

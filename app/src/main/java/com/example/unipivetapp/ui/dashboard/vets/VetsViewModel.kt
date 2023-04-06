@@ -4,7 +4,9 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.domain.models.Rating
 import com.example.domain.models.Vet
+import com.example.domain.usecases.ratings.GetAllRatingsUseCase
 import com.example.domain.usecases.vets.GetAllVetsUseCase
 import com.example.domain.usecases.vets.SearchVetByNameUseCase
 import com.example.unipivetapp.base.BaseViewModel
@@ -19,6 +21,7 @@ class VetsViewModel @Inject constructor(
     app: Application,
     @IoDispatcher private val dispatcher: CoroutineDispatcher,
     private val useCase: GetAllVetsUseCase,
+    private val ratingsUseCase: GetAllRatingsUseCase,
     private val queryUseCase: SearchVetByNameUseCase
 ) : BaseViewModel(app) {
 
@@ -38,14 +41,32 @@ class VetsViewModel @Inject constructor(
     private fun searchVetByName(name: String) {
         viewModelScope.launch(dispatcher) {
             val data = queryUseCase.searchByName(name)
-            _vets.postValue(data)
+            val ratings = ratingsUseCase.getAllRatings()
+            val result = applyRatings(data, ratings)
+            _vets.postValue(result)
         }
     }
 
     fun getAllVets() {
         viewModelScope.launch(dispatcher) {
             val data = useCase.getAllVets()
-            _vets.postValue(data)
+            val ratings = ratingsUseCase.getAllRatings()
+            val result = applyRatings(data, ratings)
+            _vets.postValue(result)
         }
+    }
+
+    private fun applyRatings(vetList: List<Vet>, ratings: List<Rating>): List<Vet> {
+        val combinedData = vetList.apply {
+            map { vet ->
+                val vetRatings = ratings.filter { it.doctorId == vet.id }
+                    .map { it.value }
+                    .average()
+
+                vet.rating = vetRatings
+            }
+        }
+
+        return combinedData
     }
 }

@@ -15,7 +15,16 @@ class RatingsRepositoryImpl @Inject constructor(
     private val firestore: FirebaseFirestore
 ) : RatingsRepository {
 
-    override suspend fun getAllRatings(docId: Int): List<Rating> {
+    override suspend fun getAllRatings(): List<Rating> {
+        val result = firestore.collection(RATINGS_DB_PATH)
+            .get()
+            .await()
+            .toListOf<RatingDto>()
+
+        return RatingsMapper.toDomainModel(result)
+    }
+
+    override suspend fun getAllRatingsById(docId: Int): List<Rating> {
         val result = firestore.collection(RATINGS_DB_PATH)
             .whereEqualTo(DOC_ID, docId)
             .get()

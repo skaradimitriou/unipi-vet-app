@@ -3,7 +3,7 @@ package com.example.domain.models
 data class DashboardModel(
     var userInfo: UserInfo,
     val featured: FeaturedItemParent,
-    val popularVets: VetItemParent
+    var popularVets: VetItemParent
 ) {
     fun toUiData(): List<UiModel> = listOf(
         userInfo,
@@ -22,7 +22,7 @@ data class FeaturedItemParent(
 }
 
 data class VetItemParent(
-    val items: List<Vet>
+    var items: List<Vet>
 ) : UiModel {
     override fun equalsContent(obj: UiModel): Boolean = when (obj) {
         is VetItemParent -> items == obj.items

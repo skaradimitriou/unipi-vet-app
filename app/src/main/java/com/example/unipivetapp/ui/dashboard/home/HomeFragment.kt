@@ -14,7 +14,6 @@ import com.example.unipivetapp.ui.docdetails.DocDetailsActivity
 import com.example.unipivetapp.util.VET
 import com.example.unipivetapp.util.ext.setScreenTitle
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), HomeScreenCallback {
@@ -28,18 +27,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
     }
 
     override fun startOps() {
-        viewModel.test()
+        viewModel.getDashboardData()
         viewModel.dashboardData.observe(viewLifecycleOwner) { result ->
             when (result) {
-                is Result.Loading -> {
-                    binding.isLoading = true
-                    Timber.d("")
-                }
+                is Result.Loading -> binding.isLoading = true
                 is Result.Success -> {
                     binding.isLoading = false
                     adapter.submitList(result.data?.toUiData())
                 }
-                is Result.Failure -> Unit
+                is Result.Failure -> binding.isLoading = false
             }
         }
     }

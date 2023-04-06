@@ -12,7 +12,7 @@ data class Vet(
     val fullName: String,
     val image: String,
     val mobileNo: String,
-    val rating: Double,
+    var rating: Double,
     val id: Int
 ) : UiModel, Parcelable {
     override fun equalsContent(obj: UiModel): Boolean = false

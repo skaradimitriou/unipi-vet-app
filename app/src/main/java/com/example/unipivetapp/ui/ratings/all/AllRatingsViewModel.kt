@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.Rating
-import com.example.domain.usecases.ratings.GetAllRatingsUseCase
+import com.example.domain.usecases.ratings.GetAllRatingsByIdUseCase
 import com.example.unipivetapp.base.BaseViewModel
 import com.example.unipivetapp.di.IoDispatcher
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +17,7 @@ import javax.inject.Inject
 class AllRatingsViewModel @Inject constructor(
     app: Application,
     @IoDispatcher private val dispatcher: CoroutineDispatcher,
-    private val useCase: GetAllRatingsUseCase
+    private val useCase: GetAllRatingsByIdUseCase
 ) : BaseViewModel(app) {
 
     val ratings: LiveData<List<Rating>>

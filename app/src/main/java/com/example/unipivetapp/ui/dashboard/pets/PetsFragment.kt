@@ -1,10 +1,13 @@
 package com.example.unipivetapp.ui.dashboard.pets
 
+import android.content.Intent
 import androidx.fragment.app.viewModels
 import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseFragment
 import com.example.unipivetapp.databinding.FragmentPetsBinding
 import com.example.unipivetapp.ui.dashboard.pets.adapter.PetsAdapter
+import com.example.unipivetapp.ui.pets.PetsActivity
+import com.example.unipivetapp.util.PET
 import com.example.unipivetapp.util.ext.setScreenTitle
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,11 +17,13 @@ class PetsFragment : BaseFragment<FragmentPetsBinding>(R.layout.fragment_pets) {
     private val viewModel: PetsViewModel by viewModels()
 
     private val adapter = PetsAdapter { selectedPet ->
-        //FIXME: Open Pet details screen
+        startActivity(Intent(requireContext(), PetsActivity::class.java).apply {
+            putExtra(PET, selectedPet)
+        })
     }
 
     override fun init() {
-        setScreenTitle("Κατοικίδια")
+        setScreenTitle(getString(R.string.pets_title))
         binding.adapter = adapter
     }
 

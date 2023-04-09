@@ -44,6 +44,7 @@
 
     <!-- Pets Screen -->
     <string name="nav_pets">Κατοικίδια</string>
+    <string name="pets_title">Κατοικίδια</string>
     <string name="dummy_pet_nickname">Μάκης</string>
     <string name="dummy_pet_type">Γάτα</string>
 
@@ -105,5 +106,7 @@
     <string name="additional_comments">Επιπλέον Σχόλια</string>
     <string name="total_rating">Συνολική Βαθμολογία</string>
     <string name="add_new_review">Προσθήκη νέας Κριτικής</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

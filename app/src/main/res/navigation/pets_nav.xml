@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pets_nav"
+    app:startDestination="@id/detailsFragment">
+
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.unipivetapp.ui.pets.add.AddFragment"
+        android:label="fragment_add"
+        tools:layout="@layout/fragment_add" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.unipivetapp.ui.pets.details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/editPetDetailsFragment"
+        android:name="com.example.unipivetapp.ui.pets.edit.EditPetDetailsFragment"
+        android:label="fragment_edit_pet_details"
+        tools:layout="@layout/fragment_edit_pet_details" />
+    <fragment
+        android:id="@+id/petResultFragment"
+        android:name="com.example.unipivetapp.ui.pets.result.PetResultFragment"
+        android:label="fragment_pet_result"
+        tools:layout="@layout/fragment_pet_result" />
+</navigation>

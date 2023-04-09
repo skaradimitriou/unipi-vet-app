@@ -3,7 +3,6 @@ package com.example.data.repositories
 import com.example.data.mappers.AppointmentsMapper
 import com.example.data.models.AppointmentDto
 import com.example.data.util.APPOINTMENTS_DB_PATH
-import com.example.data.util.DATE_AND_TIME
 import com.example.data.util.UUID
 import com.example.data.util.toListOf
 import com.example.domain.models.Appointment

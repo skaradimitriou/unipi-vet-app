@@ -25,4 +25,9 @@
         android:name="com.example.unipivetapp.ui.dashboard.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nav_pets"
+        android:name="com.example.unipivetapp.ui.dashboard.pets.PetsFragment"
+        android:label="PetsFragment"
+        tools:layout="@layout/fragment_pets" />
 </navigation>

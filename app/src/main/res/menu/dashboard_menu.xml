@@ -11,6 +11,11 @@
         android:title="@string/vets_title" />
 
     <item
+        android:id="@+id/nav_pets"
+        android:icon="@drawable/ic_pet"
+        android:title="@string/nav_pets" />
+
+    <item
         android:id="@+id/nav_appointments"
         android:icon="@drawable/ic_appointments"
         android:title="@string/appointments_title" />

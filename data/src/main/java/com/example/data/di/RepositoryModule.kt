@@ -41,4 +41,12 @@ class RepositoryModule {
     @Singleton
     fun provideRatingsRepository(firestore: FirebaseFirestore): RatingsRepository =
         RatingsRepositoryImpl(firestore)
+
+    @Provides
+    @Singleton
+    fun providePetRepository(
+        firestore: FirebaseFirestore,
+        storage: StorageReference
+    ): PetRepository =
+        PetRepositoryImpl(firestore, storage)
 }

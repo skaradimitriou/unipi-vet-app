@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.domain.models.Pet" />
+
+        <variable
+            name="callback"
+            type="com.example.unipivetapp.ui.dashboard.pets.adapter.PetCallback" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_s"
+        android:layout_marginTop="@dimen/dimen_s">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/round_corners"
+            android:backgroundTint="@color/white"
+            android:onClick="@{() -> callback.onPetClick(model)}"
+            android:padding="@dimen/dimen_s"
+            app:layout_constraintEnd_toEndOf="@id/centerView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/petImgView"
+                android:layout_width="@dimen/dimen_2xl"
+                android:layout_height="@dimen/dimen_2xl"
+                android:contentDescription="@{model.nickname}"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setProfileImage="@{model.image}"
+                tools:src="@drawable/profile_placeholder" />
+
+            <TextView
+                android:id="@+id/petNameTxtView"
+                style="@style/text_18_bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_m"
+                android:text="@{model.nickname}"
+                app:layout_constraintBottom_toTopOf="@+id/petTypeTxtView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/petImgView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/dummy_pet_nickname" />
+
+            <TextView
+                android:id="@+id/petTypeTxtView"
+                style="@style/text_16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_m"
+                android:paddingTop="@dimen/dimen_xs"
+                android:text="@{model.type.name()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/petImgView"
+                app:layout_constraintTop_toBottomOf="@+id/petNameTxtView"
+                tools:text="@string/dummy_pet_type" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/petView"
+            android:layout_width="@dimen/dimen_xl"
+            android:layout_height="@dimen/dimen_xl"
+            android:background="@drawable/round_corners"
+            android:backgroundTint="@color/dark_blue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/centerView"
+            android:layout_width="@dimen/dimen_1"
+            android:layout_height="@dimen/dimen_1"
+            app:layout_constraintBottom_toBottomOf="@id/petView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/petView"
+            app:layout_constraintTop_toTopOf="@id/petView" />
+
+        <ImageView
+            android:id="@+id/petDecorationImgView"
+            android:layout_width="@dimen/dimen_l"
+            android:layout_height="@dimen/dimen_l"
+            android:src="@drawable/ic_pet"
+            app:layout_constraintBottom_toBottomOf="@id/petView"
+            app:layout_constraintEnd_toEndOf="@id/petView"
+            app:layout_constraintStart_toStartOf="@id/petView"
+            app:layout_constraintTop_toTopOf="@id/petView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -7,3 +7,4 @@ const val APPOINTMENT = "APPOINTMENT"
 const val STANDARD_DELAY = 300L
 
 const val DOC_ID = "DOC_ID"
+const val ADD_PET = "ADD_PET"

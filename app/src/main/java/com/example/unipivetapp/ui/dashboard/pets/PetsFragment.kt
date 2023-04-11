@@ -7,7 +7,9 @@ import com.example.unipivetapp.base.BaseFragment
 import com.example.unipivetapp.databinding.FragmentPetsBinding
 import com.example.unipivetapp.ui.dashboard.pets.adapter.PetsAdapter
 import com.example.unipivetapp.ui.pets.PetsActivity
+import com.example.unipivetapp.util.ADD_PET
 import com.example.unipivetapp.util.PET
+import com.example.unipivetapp.util.ext.addAppBarMenu
 import com.example.unipivetapp.util.ext.setScreenTitle
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,6 +26,13 @@ class PetsFragment : BaseFragment<FragmentPetsBinding>(R.layout.fragment_pets) {
 
     override fun init() {
         setScreenTitle(getString(R.string.pets_title))
+        addAppBarMenu(menuId = R.menu.pet_menu) { selectedAction ->
+            if (selectedAction == R.id.nav_new_pet) {
+                startActivity(Intent(requireContext(), PetsActivity::class.java).apply {
+                    putExtra(ADD_PET, true)
+                })
+            }
+        }
         binding.adapter = adapter
     }
 

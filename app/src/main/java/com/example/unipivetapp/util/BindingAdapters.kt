@@ -1,15 +1,19 @@
 package com.example.unipivetapp.util
 
+import android.content.res.ColorStateList
 import android.view.View
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.unipivetapp.R
+import com.example.unipivetapp.ui.pets.add.uimodel.PetChip
+import com.example.unipivetapp.util.ext.getActualColor
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -114,5 +118,17 @@ fun TextView.setRatingDescription(description: String) {
         View.VISIBLE
     } else {
         View.GONE
+    }
+}
+
+@BindingAdapter("setChipBackground")
+fun TextView.setChipBackground(chip: PetChip) {
+    background = ResourcesCompat.getDrawable(resources, R.drawable.round_corners, context.theme)
+    setTextColor(context.getActualColor(R.color.white))
+
+    backgroundTintList = if (chip.isSelected) {
+        ColorStateList.valueOf(context.getActualColor(R.color.dark_blue))
+    } else {
+        ColorStateList.valueOf(context.getActualColor(R.color.grey_dark_bg))
     }
 }

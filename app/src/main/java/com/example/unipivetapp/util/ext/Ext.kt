@@ -1,10 +1,13 @@
 package com.example.unipivetapp.util.ext
 
+import android.content.Context
 import android.content.Intent
 import android.os.Build.VERSION.SDK_INT
 import android.os.Parcelable
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.ViewDataBinding
+import androidx.navigation.NavController
 import com.example.unipivetapp.R
 import com.google.android.material.snackbar.Snackbar
 import java.time.LocalDate
@@ -28,3 +31,15 @@ fun TextView.setMonthName() {
     val month = LocalDate.now()?.format(format).toString()
     text = context.getString(R.string.appointment_month_placeholder, month)
 }
+
+fun NavController.init(navigationId: Int, destinationId: Int) {
+    val navGraph = navInflater.inflate(navigationId)
+    navGraph.setStartDestination(destinationId)
+    graph = navGraph
+}
+
+/**
+ * Helper fun to get colors from resources
+ */
+
+fun Context.getActualColor(color: Int): Int = ContextCompat.getColor(this, color)

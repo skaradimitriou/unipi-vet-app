@@ -8,7 +8,9 @@ import com.example.domain.models.Pet
 import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseActivity
 import com.example.unipivetapp.databinding.ActivityPetsBinding
+import com.example.unipivetapp.ui.pets.navigator.PetAction
 import com.example.unipivetapp.ui.pets.navigator.PetNavigatorImpl
+import com.example.unipivetapp.util.ADD_PET
 import com.example.unipivetapp.util.PET
 import com.example.unipivetapp.util.ext.getParcelable
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,6 +30,9 @@ class PetsActivity : BaseActivity<ActivityPetsBinding>(R.layout.activity_pets) {
 
         intent.getParcelable<Pet>(PET)?.let {
             viewModel.setSelectedPet(it)
+        }
+        if (intent.getBooleanExtra(ADD_PET, false)) {
+            navigator.init(PetAction.ADD_PET)
         }
     }
 

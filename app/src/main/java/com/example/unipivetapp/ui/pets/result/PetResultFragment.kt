@@ -9,14 +9,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class PetResultFragment : BaseFragment<FragmentPetResultBinding>(R.layout.fragment_pet_result) {
 
     override fun init() {
-
+        binding.continueBtn.setOnClickListener {
+            requireActivity().finish()
+        }
     }
 
-    override fun startOps() {
-
-    }
-
-    override fun stopOps() {
-
-    }
+    override fun startOps() {}
+    override fun stopOps() {}
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.unipivetapp.ui.pets.add.uimodel.PetChip" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_s">
+
+        <TextView
+            android:id="@+id/chipTxtView"
+            style="@style/text_16_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/dimen_l"
+            android:paddingVertical="@dimen/dimen_m"
+            android:text="@{model.category.name()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setChipBackground="@{model}"
+            tools:text="CAT" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="action"
+            type="com.example.unipivetapp.ui.pets.navigator.PetAction" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,8 +34,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_l"
-            android:text="@string/pet_result_title"
-            app:layout_constraintTop_toBottomOf="@id/resultImgView" />
+            app:layout_constraintTop_toBottomOf="@id/resultImgView"
+            app:setPetResultTitle="@{action}"
+            tools:text="@string/pet_result_title" />
 
         <TextView
             android:id="@+id/resultDescTxtView"
@@ -36,8 +44,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="@string/pet_result_desc"
-            app:layout_constraintTop_toBottomOf="@id/resultHeaderTxtView" />
+            app:layout_constraintTop_toBottomOf="@id/resultHeaderTxtView"
+            app:setPetResultDesc="@{action}"
+            tools:text="@string/pet_result_desc" />
 
         <Button
             android:id="@+id/continueBtn"

@@ -1,7 +1,6 @@
 package com.example.unipivetapp.ui.pets.details
 
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseFragment
 import com.example.unipivetapp.databinding.FragmentDetailsBinding
@@ -15,7 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class DetailsFragment : BaseFragment<FragmentDetailsBinding>(R.layout.fragment_details) {
 
-    private val viewModel: DetailsViewModel by viewModels()
     private val sharedViewModel: PetsViewModel by activityViewModels()
 
     override fun init() {
@@ -32,10 +30,10 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(R.layout.fragment_d
     }
 
     override fun startOps() {
-
+        sharedViewModel.getSelectedPet()?.let {
+            binding.model = it
+        }
     }
 
-    override fun stopOps() {
-
-    }
+    override fun stopOps() {}
 }

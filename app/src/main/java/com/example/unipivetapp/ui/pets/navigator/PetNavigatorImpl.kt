@@ -26,6 +26,7 @@ class PetNavigatorImpl @Inject constructor(
         PetAction.ADD_PET_RESULT -> navController.navigate(R.id.petResultFragment)
         PetAction.DETAILS -> navController.navigate(R.id.detailsFragment)
         PetAction.EDIT_PET_DETAILS -> navController.navigate(R.id.editPetDetailsFragment)
+        PetAction.EDIT_PET_RESULT -> navController.navigate(R.id.petResultFragment)
     }
 
     override fun goBack() {

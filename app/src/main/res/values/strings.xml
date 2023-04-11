@@ -59,7 +59,9 @@
 
     <!-- Pet Result Screen -->
     <string name="pet_result_title">Το κατοικίδιο αποθηκεύτηκε</string>
+    <string name="pet_result_update_title">Το κατοικίδιο ανανεώθηκε</string>
     <string name="pet_result_desc">Το κατοικίδιο σου προστέθηκε στην λίστα σου. Θα μπορείς να το διαχειριστείς απο την οθόνη κατοικιδίων.</string>
+    <string name="pet_result_update_desc">Οι πληροφορίες του κατοικιδίου σου ανανεώθηκαν στην καρτέλα. Θα μπορείς να το διαχειριστείς απο την οθόνη κατοικιδίων.</string>
     <string name="return_to_home">Επιστροφή στην αρχική</string>
 
     <!-- My Appointments -->

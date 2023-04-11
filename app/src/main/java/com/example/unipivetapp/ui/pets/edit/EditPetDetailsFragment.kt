@@ -86,7 +86,7 @@ class EditPetDetailsFragment :
                 is Result.Loading -> binding.isLoading = true
                 is Result.Success -> {
                     binding.isLoading = false
-                    sharedViewModel.navigateToScreen(PetAction.ADD_PET_RESULT)
+                    sharedViewModel.navigateToScreen(PetAction.EDIT_PET_RESULT)
                 }
                 is Result.Failure -> binding.isLoading = false
             }

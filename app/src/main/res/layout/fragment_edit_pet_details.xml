@@ -1,12 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isLoading"
+            type="Boolean" />
+
+        <variable
+            name="adapter"
+            type="com.example.unipivetapp.ui.pets.add.adapter.ChipAdapter" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.pets.edit.EditPetDetailsFragment">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{isLoading ? View.GONE : View.VISIBLE}">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/petImgView"
+                android:layout_width="@dimen/dimen_3xl"
+                android:layout_height="@dimen/dimen_3xl"
+                android:layout_marginTop="@dimen/dimen_xl"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                android:src="@drawable/placeholder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/editImgView"
+                android:layout_width="@dimen/dimen_xl"
+                android:layout_height="@dimen/dimen_xl"
+                android:layout_marginTop="@dimen/dimen_xl"
+                android:background="@drawable/round_corners"
+                android:backgroundTint="@color/dark_blue"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/dimen_xs"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_pencil"
+                android:tint="@color/grey_dark_bg"
+                app:layout_constraintBottom_toBottomOf="@id/petImgView"
+                app:layout_constraintEnd_toEndOf="@id/petImgView" />
+
+            <TextView
+                android:id="@+id/usernameTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_m"
+                android:layout_marginTop="@dimen/dimen_xl"
+                android:text="@string/pet_name"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/petImgView" />
+
+            <EditText
+                android:id="@+id/usernameEditTxt"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/input_field_height"
+                android:hint="@string/pet_name"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@id/usernameTxtView"
+                app:layout_constraintStart_toStartOf="@id/usernameTxtView"
+                app:layout_constraintTop_toBottomOf="@id/usernameTxtView" />
+
+            <TextView
+                android:id="@+id/typeTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_l"
+                android:text="@string/pet_category"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/usernameEditTxt"
+                app:layout_constraintTop_toBottomOf="@id/usernameEditTxt" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/chipsRecycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_m"
+                android:adapter="@{adapter}"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/typeTxtView"
+                app:layout_constraintTop_toBottomOf="@id/typeTxtView"
+                tools:listitem="@layout/holder_chip_item" />
+
+            <Button
+                android:id="@+id/continueBtn"
+                style="@style/AppButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:layout_margin="@dimen/dimen_l"
+                android:layout_marginTop="@dimen/dimen_l"
+                android:text="@string/continue_btn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loadingLottie"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_4xl"
+            android:visibility="@{isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/loading" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

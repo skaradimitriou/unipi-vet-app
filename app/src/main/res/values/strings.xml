@@ -50,6 +50,12 @@
 
     <!-- Add new pet screen -->
     <string name="add_new_pet_title">Προσθήκη Νέου Κατοικιδίου</string>
+    <string name="pet_name">Όνομα κατοικιδίου</string>
+    <string name="pet_category">Κατηγορία</string>
+    <string name="pet_details_title">Πληροφορίες</string>
+
+    <!-- Edit pet screen -->
+    <string name="edit_pet_info">Επεξεργασία Κατοικιδίου</string>
 
     <!-- Pet Result Screen -->
     <string name="pet_result_title">Το κατοικίδιο αποθηκεύτηκε</string>
@@ -114,8 +120,6 @@
     <string name="additional_comments">Επιπλέον Σχόλια</string>
     <string name="total_rating">Συνολική Βαθμολογία</string>
     <string name="add_new_review">Προσθήκη νέας Κριτικής</string>
-    <string name="pet_name">Όνομα κατοικιδίου</string>
-    <string name="pet_category">Κατηγορία</string>
-    <string name="pet_details_title">Πληροφορίες</string>
+
 
 </resources>

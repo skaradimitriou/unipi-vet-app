@@ -33,10 +33,13 @@ class ChipAdapter(
                     binding.model = data
 
                     binding.chipTxtView.setOnClickListener {
-                        val item = (currentList.find { it.isSelected }) as PetChip
-                        item.isSelected = !item.isSelected
+                        val item = (currentList.find { it.isSelected })
+                        item?.let {
+                            item.isSelected = !item.isSelected
+                            notifyItemChanged(currentList.indexOf(item))
+                        }
+
                         data.isSelected = !data.isSelected
-                        notifyItemChanged(currentList.indexOf(item))
                         notifyItemChanged(currentList.indexOf(data))
                         callback.onChipClick(data)
                     }

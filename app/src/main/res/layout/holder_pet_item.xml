@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.example.domain.models.Pet" />
+            type="com.example.domain.models.pets.Pet" />
 
         <variable
             name="callback"

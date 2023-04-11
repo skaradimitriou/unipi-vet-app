@@ -2,8 +2,8 @@ package com.example.data.mappers
 
 import com.example.data.models.PetResponseDto
 import com.example.data.util.toNotNull
-import com.example.domain.models.Pet
-import com.example.domain.models.PetCategory
+import com.example.domain.models.pets.Pet
+import com.example.domain.models.pets.PetCategory
 
 object PetMapper : Mapper<PetResponseDto?, List<Pet>> {
 

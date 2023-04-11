@@ -3,7 +3,7 @@ package com.example.unipivetapp.ui.dashboard.pets.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.example.domain.models.Pet
+import com.example.domain.models.pets.Pet
 import com.example.domain.models.UiModel
 import com.example.unipivetapp.base.BaseViewHolder
 import com.example.unipivetapp.base.DiffUtilClass

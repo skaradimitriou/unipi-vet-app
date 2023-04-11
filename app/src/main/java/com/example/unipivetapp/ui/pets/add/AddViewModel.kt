@@ -5,9 +5,9 @@ import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.domain.models.PetCategory
-import com.example.domain.models.PetRequest
 import com.example.domain.models.Result
+import com.example.domain.models.pets.PetCategory
+import com.example.domain.models.pets.PetRequest
 import com.example.domain.usecases.pets.AddPetUseCase
 import com.example.unipivetapp.base.BaseViewModel
 import com.example.unipivetapp.di.IoDispatcher

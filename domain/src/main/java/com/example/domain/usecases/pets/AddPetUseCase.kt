@@ -1,6 +1,6 @@
 package com.example.domain.usecases.pets
 
-import com.example.domain.models.PetRequest
+import com.example.domain.models.pets.PetRequest
 import com.example.domain.repositories.PetRepository
 import javax.inject.Inject
 

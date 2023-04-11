@@ -1,8 +1,8 @@
-package com.example.domain.models
+package com.example.domain.models.pets
 
 import android.graphics.Bitmap
 
-data class PetRequest(
+data class UpdatePetRequest(
     val nickname: String? = null,
     val image: Bitmap? = null,
     val type: PetCategory

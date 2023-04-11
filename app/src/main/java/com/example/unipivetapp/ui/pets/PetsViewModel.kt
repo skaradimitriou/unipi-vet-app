@@ -3,7 +3,7 @@ package com.example.unipivetapp.ui.pets
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.domain.models.Pet
+import com.example.domain.models.pets.Pet
 import com.example.unipivetapp.ui.pets.navigator.PetAction
 
 class PetsViewModel : ViewModel() {

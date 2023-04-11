@@ -1,6 +1,6 @@
 package com.example.unipivetapp.ui.pets.add.uimodel
 
-import com.example.domain.models.PetCategory
+import com.example.domain.models.pets.PetCategory
 import com.example.domain.models.UiModel
 
 data class PetChip(

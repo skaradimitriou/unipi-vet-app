@@ -4,7 +4,7 @@ import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import com.example.domain.models.Pet
+import com.example.domain.models.pets.Pet
 import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseActivity
 import com.example.unipivetapp.databinding.ActivityPetsBinding

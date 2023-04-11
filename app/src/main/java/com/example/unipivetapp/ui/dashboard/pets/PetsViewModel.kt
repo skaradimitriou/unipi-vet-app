@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.domain.models.Pet
+import com.example.domain.models.pets.Pet
 import com.example.domain.usecases.pets.GetMyPetsUseCase
 import com.example.unipivetapp.base.BaseViewModel
 import com.example.unipivetapp.di.IoDispatcher

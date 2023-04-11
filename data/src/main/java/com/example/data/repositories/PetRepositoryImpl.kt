@@ -4,9 +4,10 @@ import com.example.data.mappers.PetMapper
 import com.example.data.models.PetResponseDto
 import com.example.data.util.PETS_DB_PATH
 import com.example.data.util.compressBitmap
-import com.example.domain.models.Pet
-import com.example.domain.models.PetRequest
 import com.example.domain.models.Result
+import com.example.domain.models.pets.Pet
+import com.example.domain.models.pets.PetRequest
+import com.example.domain.models.pets.UpdatePetRequest
 import com.example.domain.repositories.PetRepository
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.StorageReference
@@ -40,6 +41,47 @@ class PetRepositoryImpl @Inject constructor(
         }
 
         list.add(Pet(pet.nickname ?: "", downloadUrl ?: "", pet.type))
+
+        val data: HashMap<String, Any> = hashMapOf("pets" to list)
+
+        firestore.collection(PETS_DB_PATH)
+            .document(uuid)
+            .set(data)
+            .addOnSuccessListener {
+                result = Result.Success(true)
+            }
+            .addOnFailureListener {
+                result = Result.Failure(error = it.message.toString())
+            }
+            .await()
+
+        return result
+    }
+
+    override suspend fun updatePet(
+        original: Pet?,
+        pet: UpdatePetRequest,
+        uuid: String
+    ): Result<Boolean> {
+        var result: Result<Boolean> = Result.Loading()
+
+        val storageRef = storage.child("pics/$uuid")
+        val downloadUrl = pet.image?.compressBitmap()?.let {
+            val upload = storageRef.putBytes(it).await()
+            upload.metadata?.reference?.downloadUrl?.await().toString()
+        }
+
+        val list = getMyPets(uuid).toMutableList().apply {
+            map { item ->
+                original?.let { currentPet ->
+                    if (item.equalsContent(currentPet)) {
+                        item.image = downloadUrl.toString()
+                        item.nickname = pet.nickname.toString()
+                        item.type = pet.type
+                    }
+                }
+            }
+        }
 
         val data: HashMap<String, Any> = hashMapOf("pets" to list)
 

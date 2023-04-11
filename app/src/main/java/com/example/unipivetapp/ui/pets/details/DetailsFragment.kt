@@ -1,26 +1,32 @@
 package com.example.unipivetapp.ui.pets.details
 
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.example.unipivetapp.R
 import com.example.unipivetapp.base.BaseFragment
 import com.example.unipivetapp.databinding.FragmentDetailsBinding
 import com.example.unipivetapp.ui.pets.PetsViewModel
+import com.example.unipivetapp.ui.pets.navigator.PetAction
 import com.example.unipivetapp.util.ext.addAppBarMenu
 import com.example.unipivetapp.util.ext.setScreenTitle
+import com.example.unipivetapp.util.ext.withDelay
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailsFragment : BaseFragment<FragmentDetailsBinding>(R.layout.fragment_details) {
 
     private val viewModel: DetailsViewModel by viewModels()
-    private val sharedViewModel: PetsViewModel by viewModels()
+    private val sharedViewModel: PetsViewModel by activityViewModels()
 
     override fun init() {
         setScreenTitle(getString(R.string.pet_details_title))
 
         addAppBarMenu(menuId = R.menu.profile_screen_menu) { selectedAction ->
             if (selectedAction == R.id.nav_edit_profile) {
-                //FIXME: Go to edit pet details
+                sharedViewModel.navigateToScreen(PetAction.EDIT_PET_DETAILS)
+                withDelay(500L) {
+                    sharedViewModel.resetNavigation()
+                }
             }
         }
     }

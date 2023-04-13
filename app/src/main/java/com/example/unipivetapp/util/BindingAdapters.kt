@@ -102,13 +102,15 @@ fun TextView.setAppointmentInfoTime(time: String) {
 
 @BindingAdapter("setViewPagerPageTransformer")
 fun ViewPager2.setViewPagerPageTransformer(shouldBeSet: Boolean) {
+    offscreenPageLimit = 3
+
     val compositePageTransformer = CompositePageTransformer()
-    compositePageTransformer.addTransformer(MarginPageTransformer(40))
+    compositePageTransformer.addTransformer(MarginPageTransformer(25))
     compositePageTransformer.addTransformer { page: View, position: Float ->
         val r = 1 - abs(position)
         page.scaleY = 0.85f + r * 0.15f
     }
-    this.setPageTransformer(compositePageTransformer)
+    setPageTransformer(compositePageTransformer)
 }
 
 @BindingAdapter("setRatingDescription")

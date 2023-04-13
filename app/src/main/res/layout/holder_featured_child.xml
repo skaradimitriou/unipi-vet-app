@@ -17,7 +17,6 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="@dimen/dimen_m"
         app:cardCornerRadius="@dimen/dimen_10">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,7 +44,6 @@
                 android:layout_height="wrap_content"
                 android:text="@{model.text}"
                 android:textColor="@color/white"
-                android:layout_marginHorizontal="@dimen/dimen_m"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

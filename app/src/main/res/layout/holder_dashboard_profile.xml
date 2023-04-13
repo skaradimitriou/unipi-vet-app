@@ -30,7 +30,7 @@
 
         <TextView
             android:id="@+id/greetingTxtView"
-            style="@style/text_16"
+            style="@style/text_18"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dimen_10"
@@ -42,7 +42,7 @@
 
         <TextView
             android:id="@+id/profile_user_name"
-            style="@style/text_16_bold"
+            style="@style/text_18_bold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dimen_10"

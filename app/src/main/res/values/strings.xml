@@ -123,5 +123,8 @@
     <string name="total_rating">Συνολική Βαθμολογία</string>
     <string name="add_new_review">Προσθήκη νέας Κριτικής</string>
 
+    <!-- Article WebView Screen -->
+    <string name="article_title">Άρθρο</string>
+
 
 </resources>

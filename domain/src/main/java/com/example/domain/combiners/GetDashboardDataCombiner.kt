@@ -24,7 +24,7 @@ class GetDashboardDataCombiner @Inject constructor(
             map {
                 it.rating = groupedRatings[it.id]?.map { it.value }?.average() ?: 0.0
             }
-        }
+        }.take(5)
 
         val dashboardData = dashboardRepo.getDashboardData().apply {
             userInfo = profileData

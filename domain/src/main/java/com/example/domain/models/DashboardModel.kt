@@ -1,5 +1,8 @@
 package com.example.domain.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 data class DashboardModel(
     var userInfo: UserInfo,
     val featured: FeaturedItemParent,
@@ -30,10 +33,12 @@ data class VetItemParent(
     }
 }
 
+@Parcelize
 data class FeaturedItem(
     val image: String,
-    val text: String
-) : UiModel {
+    val text: String,
+    val url: String
+) : UiModel, Parcelable {
     override fun equalsContent(obj: UiModel): Boolean = when (obj) {
         is FeaturedItem -> image == obj.image && text == obj.text
         else -> false

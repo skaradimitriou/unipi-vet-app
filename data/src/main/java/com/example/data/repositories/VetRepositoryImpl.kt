@@ -30,6 +30,8 @@ class VetRepositoryImpl @Inject constructor(
             .toListOf<VetDto>()
 
         val mappedData = VetMapper.toDomainModel(result)
-        return mappedData.toMutableList().filter { it.fullName.contains(name) }
+        return mappedData.toMutableList().filter {
+            it.firstName.contains(name) || it.lastName.contains(name)
+        }
     }
 }

@@ -39,6 +39,7 @@ class PetsFragment : BaseFragment<FragmentPetsBinding>(R.layout.fragment_pets) {
     override fun startOps() {
         viewModel.getMyPets()
         viewModel.pets.observe(viewLifecycleOwner) {
+            binding.emptyResults = it.isEmpty()
             adapter.submitList(it)
         }
     }

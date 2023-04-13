@@ -36,6 +36,7 @@ class AllRatingsFragment : BaseFragment<FragmentAllRatingsBinding>(R.layout.frag
         viewModel.getAllRatings(docId)
 
         viewModel.ratings.observe(viewLifecycleOwner) { data ->
+            binding.emptyResults = data.isEmpty()
             adapter.submitList(data)
         }
     }

@@ -6,6 +6,7 @@
     <string name="continue_btn">Συνέχεια</string>
     <string name="cancel">Άκυρο</string>
     <string name="save">Αποθήκευση</string>
+    <string name="no_results_text">Δεν βρέθηκαν αποτελέσματα</string>
 
     <!-- Login Screen -->
     <string name="email_hint">E-mail</string>
@@ -125,6 +126,5 @@
 
     <!-- Article WebView Screen -->
     <string name="article_title">Άρθρο</string>
-
 
 </resources>

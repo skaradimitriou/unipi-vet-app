@@ -5,6 +5,12 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <variable
+            name="emptyResults"
+            type="Boolean" />
+
         <variable
             name="adapter"
             type="com.example.unipivetapp.ui.dashboard.appointments.adapter.AppointmentsAdapter" />
@@ -25,6 +31,32 @@
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/holder_appointment_item" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/noResultsLottie"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_4xl"
+            android:visibility="@{emptyResults ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/no_results" />
+
+        <TextView
+            android:id="@+id/noResultsTxtView"
+            style="@style/text_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_l"
+            android:gravity="center_horizontal"
+            android:text="@string/no_results_text"
+            android:visibility="@{emptyResults ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/noResultsLottie" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

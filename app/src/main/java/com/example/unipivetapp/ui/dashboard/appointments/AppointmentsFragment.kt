@@ -25,11 +25,12 @@ class AppointmentsFragment :
     @Inject
     lateinit var gson: Gson
 
-    private val activityTask = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == Activity.RESULT_OK) {
-            binding.showSnackbar("Το ραντεβού ακυρώθηκε")
+    private val activityTask =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                binding.showSnackbar("Το ραντεβού ακυρώθηκε")
+            }
         }
-    }
 
     private val adapter = AppointmentsAdapter { selectedAppointment ->
         val intent = Intent(requireContext(), AppointmentDetailsActivity::class.java).apply {
@@ -49,6 +50,7 @@ class AppointmentsFragment :
         viewModel.appointments.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is com.example.domain.models.Result.Success -> {
+                    binding.emptyResults = result.data.isNullOrEmpty()
                     adapter.submitList(result.data)
                 }
                 else -> Unit

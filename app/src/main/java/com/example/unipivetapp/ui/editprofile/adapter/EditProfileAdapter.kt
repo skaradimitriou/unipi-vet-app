@@ -13,7 +13,7 @@ import com.example.unipivetapp.base.DiffUtilClass
 import com.example.unipivetapp.base.EmptyViewHolder
 import com.example.unipivetapp.databinding.HolderEditProfileSaveBinding
 import com.example.unipivetapp.databinding.HolderEmptyItemBinding
-import com.example.unipivetapp.databinding.HolderProfileHeaderBinding
+import com.example.unipivetapp.databinding.HolderProfileEditHeaderBinding
 import com.example.unipivetapp.ui.dashboard.profile.uimodel.ProfileHeader
 
 class EditProfileAdapter(
@@ -23,8 +23,8 @@ class EditProfileAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
-            R.layout.holder_profile_header -> {
-                val view = HolderProfileHeaderBinding.inflate(inflater, parent, false)
+            R.layout.holder_profile_edit_header -> {
+                val view = HolderProfileEditHeaderBinding.inflate(inflater, parent, false)
                 EditProfileHeaderViewHolder(view, callback)
             }
             R.layout.holder_edit_profile_save -> {
@@ -45,14 +45,14 @@ class EditProfileAdapter(
     }
 
     override fun getItemViewType(position: Int): Int = when (getItem(position)) {
-        is ProfileHeader -> R.layout.holder_profile_header
+        is ProfileHeader -> R.layout.holder_profile_edit_header
         is UserInfo -> R.layout.holder_edit_profile_save
         else -> R.layout.holder_empty_item
     }
 }
 
 class EditProfileHeaderViewHolder(
-    private val binding: HolderProfileHeaderBinding,
+    private val binding: HolderProfileEditHeaderBinding,
     private val callback: EditProfileScreenCallback
 ) : BaseViewHolder(binding) {
 

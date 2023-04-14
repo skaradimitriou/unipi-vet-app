@@ -11,7 +11,8 @@ object AppointmentsMapper : Mapper<List<AppointmentDto?>?, List<AppointmentInfo>
         AppointmentInfo(
             vet = it?.vet.toDomainModel(),
             appointmentDateAndTime = it?.appointmentDateAndTime.toNotNull(),
-            uuid = it?.uuid.toNotNull()
+            uuid = it?.uuid.toNotNull(),
+            firestoreId = it?.firestoreId.toNotNull()
         )
     } ?: listOf()
 }

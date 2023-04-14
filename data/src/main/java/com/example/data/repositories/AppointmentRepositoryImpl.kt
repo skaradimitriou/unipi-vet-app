@@ -11,7 +11,6 @@ import com.example.domain.models.Result
 import com.example.domain.models.Vet
 import com.example.domain.repositories.AppointmentRepository
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
@@ -24,23 +23,24 @@ class AppointmentRepositoryImpl @Inject constructor(
         vet: Vet,
         userId: String
     ): Result<Boolean> {
-        val data = AppointmentInfo(
-            vet = vet,
-            appointmentDateAndTime = appointment.toFirestoreFormat().toString(),
-            uuid = userId
-        )
-
         var result: Result<Boolean> = Result.Loading()
-        firestore.collection(APPOINTMENTS_DB_PATH)
-            .document()
-            .set(data)
-            .addOnSuccessListener {
-                result = Result.Success(true)
-            }
-            .addOnFailureListener {
-                result = Result.Failure(error = it.message.toString())
-            }
-            .await()
+        firestore.collection(APPOINTMENTS_DB_PATH).document().apply {
+            val data = AppointmentInfo(
+                vet = vet,
+                appointmentDateAndTime = appointment.toFirestoreFormat().toString(),
+                uuid = userId,
+                firestoreId = id //auto-generated id for Firestore document.
+            )
+
+            set(data)
+                .addOnSuccessListener {
+                    result = Result.Success(true)
+                }
+                .addOnFailureListener {
+                    result = Result.Failure(error = it.message.toString())
+                }
+                .await()
+        }
 
         return result
     }
@@ -61,9 +61,17 @@ class AppointmentRepositoryImpl @Inject constructor(
     ): Result<Boolean> {
         var result: Result<Boolean> = Result.Loading()
 
-        //FIXME: Add delete capability
-        delay(1500)
+        firestore.collection(APPOINTMENTS_DB_PATH)
+            .document(appointment.firestoreId)
+            .delete()
+            .addOnSuccessListener {
+                result = Result.Success(true)
+            }
+            .addOnFailureListener {
+                result = Result.Failure(error = it.message.toString())
+            }
+            .await()
 
-        return Result.Success(true)
+        return result
     }
 }

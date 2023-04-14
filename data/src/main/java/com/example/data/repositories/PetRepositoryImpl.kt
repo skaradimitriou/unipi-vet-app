@@ -34,7 +34,7 @@ class PetRepositoryImpl @Inject constructor(
 
         val list = getMyPets(uuid).toMutableList()
 
-        val storageRef = storage.child("pics/$uuid")
+        val storageRef = storage.child("pets/$uuid/${pet.nickname}")
         val downloadUrl = pet.image?.compressBitmap()?.let {
             val upload = storageRef.putBytes(it).await()
             upload.metadata?.reference?.downloadUrl?.await().toString()
@@ -65,7 +65,7 @@ class PetRepositoryImpl @Inject constructor(
     ): Result<Boolean> {
         var result: Result<Boolean> = Result.Loading()
 
-        val storageRef = storage.child("pics/$uuid")
+        val storageRef = storage.child("pets/$uuid/${pet.nickname}")
         val downloadUrl = pet.image?.compressBitmap()?.let {
             val upload = storageRef.putBytes(it).await()
             upload.metadata?.reference?.downloadUrl?.await().toString()

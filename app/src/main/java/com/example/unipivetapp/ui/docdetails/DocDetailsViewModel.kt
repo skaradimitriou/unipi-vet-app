@@ -35,7 +35,11 @@ class DocDetailsViewModel @Inject constructor(
     fun displayVetDetails(vet: Vet) {
         selectedVet = vet
         viewModelScope.launch(dispatcher) {
-            val result = ratingUseCase.getAllRatings(vet.id).map { it.value }.average()
+            val ratings = ratingUseCase.getAllRatings(vet.id)
+            val result = if (ratings.isNotEmpty()) {
+                ratings.map { it.value }.average()
+            } else 0.0
+
             _vetInfo.postValue(vet.toUiModel(rating = result))
         }
     }

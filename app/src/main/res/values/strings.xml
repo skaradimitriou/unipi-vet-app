@@ -42,6 +42,8 @@
     <string name="doc_experience">Experience</string>
     <string name="dummy_doc_experience">10 years</string>
     <string name="working_experience">%d years</string>
+    <string name="dummy_rating">4.3/5</string>
+    <string name="vet_rating_placeholder">%s/5</string>
 
     <!-- Pets Screen -->
     <string name="nav_pets">Κατοικίδια</string>

@@ -7,12 +7,15 @@ import com.example.unipivetapp.base.BaseFragment
 import com.example.unipivetapp.databinding.FragmentCalendarBinding
 import com.example.unipivetapp.ui.appointments.AppointmentsSharedViewModel
 import com.example.unipivetapp.ui.appointments.AppointmentsViewModel
+import com.example.unipivetapp.ui.appointments.calendar.adapter.DayCallback
 import com.example.unipivetapp.ui.appointments.calendar.adapter.DaysAdapter
 import com.example.unipivetapp.ui.appointments.calendar.adapter.TimeAdapter
+import com.example.unipivetapp.ui.appointments.calendar.uimodel.Day
 import com.example.unipivetapp.ui.appointments.navigator.AppointmentAction
 import com.example.unipivetapp.util.STANDARD_DELAY
 import com.example.unipivetapp.util.ext.setMonthName
 import com.example.unipivetapp.util.ext.setScreenTitle
+import com.example.unipivetapp.util.ext.showSnackbar
 import com.example.unipivetapp.util.ext.withDelay
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,9 +26,10 @@ class CalendarFragment : BaseFragment<FragmentCalendarBinding>(R.layout.fragment
     private val sharedViewModel: AppointmentsSharedViewModel by activityViewModels()
     private val activityViewModel: AppointmentsViewModel by activityViewModels()
 
-    private val daysAdapter = DaysAdapter { selectedDay ->
-        sharedViewModel.setSelectedDayOfMonth(selectedDay)
-    }
+    private val daysAdapter = DaysAdapter(object : DayCallback {
+        override fun onDayClick(model: Day) =  sharedViewModel.setSelectedDayOfMonth(model)
+        override fun onEarlierDayThanToday() = binding.showSnackbar("Μικροτερη ημερομηνια")
+    })
 
     private val timeAdapter = TimeAdapter { selectedSlot ->
         sharedViewModel.setSelectedTimeSlot(selectedSlot)

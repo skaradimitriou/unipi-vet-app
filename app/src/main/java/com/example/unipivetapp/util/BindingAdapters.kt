@@ -62,6 +62,11 @@ fun RatingBar.setVetRating(rate: Double?) {
     rating = rate?.toFloat() ?: 0F
 }
 
+@BindingAdapter("setVetRatingTxt")
+fun TextView.setVetRatingTxt(rate: Double?) {
+    text = resources.getString(R.string.vet_rating_placeholder, rate.toString())
+}
+
 @BindingAdapter("setWorkingExperience")
 fun TextView.setWorkingExperience(experience: Int?) {
     text = resources.getString(R.string.working_experience, experience)

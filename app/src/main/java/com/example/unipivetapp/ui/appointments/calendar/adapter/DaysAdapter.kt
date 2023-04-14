@@ -8,6 +8,7 @@ import com.example.unipivetapp.base.BaseViewHolder
 import com.example.unipivetapp.base.DiffUtilClass
 import com.example.unipivetapp.databinding.HolderDayItemBinding
 import com.example.unipivetapp.ui.appointments.calendar.uimodel.Day
+import java.time.LocalDate
 
 class DaysAdapter(
     private val callback: DayCallback
@@ -32,11 +33,16 @@ class DaysAdapter(
                 binding.model = data
                 binding.itemConstraint.setOnClickListener {
                     val item = (currentList.find { (it as Day).isSelected }) as Day
-                    item.isSelected = !item.isSelected
-                    data.isSelected = !data.isSelected
-                    notifyItemChanged(currentList.indexOf(item))
-                    notifyItemChanged(currentList.indexOf(data))
-                    callback.onDayClick(data)
+
+                    if (data.value < LocalDate.now() || item.value < LocalDate.now()) {
+                        callback.onEarlierDayThanToday()
+                    } else {
+                        item.isSelected = !item.isSelected
+                        data.isSelected = !data.isSelected
+                        notifyItemChanged(currentList.indexOf(item))
+                        notifyItemChanged(currentList.indexOf(data))
+                        callback.onDayClick(data)
+                    }
                 }
             }
             else -> Unit
@@ -44,6 +50,7 @@ class DaysAdapter(
     }
 }
 
-fun interface DayCallback {
+interface DayCallback {
     fun onDayClick(model: Day)
+    fun onEarlierDayThanToday()
 }

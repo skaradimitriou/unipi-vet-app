@@ -21,7 +21,7 @@ class ProfileRepositoryImpl @Inject constructor(
 ) : ProfileRepository {
 
     override suspend fun setProfilePhoto(userImg: Bitmap, uuid: String) {
-        val storageRef = storage.child("pics/$uuid")
+        val storageRef = storage.child("profile/$uuid")
         val image = userImg.compressBitmap()
         val upload = storageRef.putBytes(image).await()
         val downloadUrl = upload.metadata?.reference?.downloadUrl?.await().toString()
@@ -38,7 +38,7 @@ class ProfileRepositoryImpl @Inject constructor(
         userImg: Bitmap,
         uuid: String
     ) {
-        val storageRef = storage.child("pics/$uuid")
+        val storageRef = storage.child("profile/$uuid")
         val image = userImg.compressBitmap()
         val upload = storageRef.putBytes(image).await()
         val downloadUrl = upload.metadata?.reference?.downloadUrl?.await().toString()

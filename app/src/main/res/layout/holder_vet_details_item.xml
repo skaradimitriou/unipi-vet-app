@@ -65,6 +65,18 @@
                 app:layout_constraintTop_toBottomOf="@id/doctor_category"
                 app:setVetRating="@{model.rating}" />
 
+            <TextView
+                android:id="@+id/vetRatingTxtView"
+                style="@style/text_16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_m"
+                app:layout_constraintBottom_toBottomOf="@id/docRating"
+                app:layout_constraintStart_toEndOf="@id/docRating"
+                app:layout_constraintTop_toTopOf="@id/docRating"
+                app:setVetRatingTxt="@{model.rating}"
+                tools:text="@string/dummy_rating" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

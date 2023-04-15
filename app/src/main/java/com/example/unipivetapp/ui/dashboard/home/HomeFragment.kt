@@ -12,6 +12,7 @@ import com.example.unipivetapp.ui.articles.ArticleActivity
 import com.example.unipivetapp.ui.dashboard.home.adapter.HomeAdapter
 import com.example.unipivetapp.ui.dashboard.home.adapter.HomeScreenCallback
 import com.example.unipivetapp.ui.docdetails.DocDetailsActivity
+import com.example.unipivetapp.ui.notifications.NotificationsActivity
 import com.example.unipivetapp.util.ITEM
 import com.example.unipivetapp.util.VET
 import com.example.unipivetapp.util.ext.setScreenTitle
@@ -26,6 +27,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
     override fun init() {
         setScreenTitle(getString(R.string.home_title))
         binding.adapter = adapter
+        binding.dashboardRecycler.itemAnimator = null
     }
 
     override fun startOps() {
@@ -43,6 +45,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
     }
 
     override fun stopOps() {}
+
+    override fun onNotificationBellClick() {
+        startActivity(Intent(requireContext(), NotificationsActivity::class.java))
+    }
 
     override fun onFeaturedItemClick(item: FeaturedItem) {
         startActivity(Intent(requireContext(), ArticleActivity::class.java).apply {

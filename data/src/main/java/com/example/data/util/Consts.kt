@@ -6,6 +6,7 @@ const val PETS_DB_PATH = "pets"
 const val APPOINTMENTS_DB_PATH = "appointments"
 const val DASHBOARD_DB_PATH = "dashboard"
 const val RATINGS_DB_PATH = "ratings"
+const val NOTIFICATIONS_DB_PATH = "notifications"
 const val DATA = "data"
 
 

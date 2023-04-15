@@ -8,6 +8,7 @@ import com.example.domain.models.Rating
 import com.example.domain.usecases.ratings.SetRatingForVetUseCase
 import com.example.unipivetapp.base.BaseViewModel
 import com.example.unipivetapp.di.IoDispatcher
+import com.example.unipivetapp.util.auth.Authenticator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
@@ -16,6 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class AddRatingViewModel @Inject constructor(
     app: Application,
+    private val auth: Authenticator,
     @IoDispatcher private val dispatcher: CoroutineDispatcher,
     private val useCase: SetRatingForVetUseCase
 ) : BaseViewModel(app) {
@@ -40,8 +42,9 @@ class AddRatingViewModel @Inject constructor(
 
     fun setRating(title: String, description: String, rating: Double) {
         viewModelScope.launch(dispatcher) {
-            val model = Rating(title, description, rating,docId)
-            useCase.setRating(model)
+            val model = Rating(title, description, rating, docId)
+            val uuid = auth.getActiveUser()?.uid.toString()
+            useCase.setRating(model, uuid)
             _ratingSaved.postValue(true)
         }
     }

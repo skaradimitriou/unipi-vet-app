@@ -129,4 +129,7 @@
     <!-- Article WebView Screen -->
     <string name="article_title">Άρθρο</string>
 
+    <!-- Notifications Screen -->
+    <string name="notifications_title">Ειδοποιήσεις</string>
+
 </resources>

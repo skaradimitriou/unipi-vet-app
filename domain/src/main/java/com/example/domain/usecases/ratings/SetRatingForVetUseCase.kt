@@ -7,5 +7,5 @@ import javax.inject.Inject
 class SetRatingForVetUseCase @Inject constructor(
     private val repo: RatingsRepository
 ) {
-    suspend fun setRating(rating: Rating) = repo.setRating(rating)
+    suspend fun setRating(rating: Rating, uuid: String) = repo.setRating(rating, uuid)
 }

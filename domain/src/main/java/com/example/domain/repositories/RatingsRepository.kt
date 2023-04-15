@@ -8,5 +8,5 @@ interface RatingsRepository {
 
     suspend fun getAllRatingsById(docId: Int): List<Rating>
 
-    suspend fun setRating(rating: Rating)
+    suspend fun setRating(rating: Rating, uuid: String)
 }

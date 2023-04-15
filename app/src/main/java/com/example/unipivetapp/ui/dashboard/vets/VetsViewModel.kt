@@ -59,10 +59,8 @@ class VetsViewModel @Inject constructor(
     private fun applyRatings(vetList: List<Vet>, ratings: List<Rating>): List<Vet> {
         val combinedData = vetList.apply {
             map { vet ->
-                val vetRatings = ratings.filter { it.doctorId == vet.id }
-                    .map { it.value }
-                    .average()
-
+                val filteredList = ratings.filter { it.doctorId == vet.id }
+                val vetRatings = if (filteredList.isEmpty()) 0.0 else filteredList.map { it.value }.average()
                 vet.rating = vetRatings
             }
         }

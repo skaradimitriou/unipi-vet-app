@@ -1,5 +1,6 @@
 package com.example.data.di
 
+import android.app.Application
 import com.example.data.repositories.*
 import com.example.domain.repositories.*
 import com.google.firebase.firestore.FirebaseFirestore
@@ -29,8 +30,12 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideAppointmentRepository(firestore: FirebaseFirestore): AppointmentRepository =
-        AppointmentRepositoryImpl(firestore)
+    fun provideAppointmentRepository(
+        app: Application,
+        firestore: FirebaseFirestore,
+        notificationsRepository: NotificationsRepository
+    ): AppointmentRepository =
+        AppointmentRepositoryImpl(app, firestore, notificationsRepository)
 
     @Provides
     @Singleton
@@ -39,14 +44,25 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideRatingsRepository(firestore: FirebaseFirestore): RatingsRepository =
-        RatingsRepositoryImpl(firestore)
+    fun provideRatingsRepository(
+        app: Application,
+        firestore: FirebaseFirestore,
+        notificationsRepository: NotificationsRepository
+    ): RatingsRepository =
+        RatingsRepositoryImpl(app, firestore, notificationsRepository)
 
     @Provides
     @Singleton
     fun providePetRepository(
+        app: Application,
         firestore: FirebaseFirestore,
-        storage: StorageReference
+        storage: StorageReference,
+        notificationsRepository: NotificationsRepository
     ): PetRepository =
-        PetRepositoryImpl(firestore, storage)
+        PetRepositoryImpl(app, firestore, storage, notificationsRepository)
+
+    @Provides
+    @Singleton
+    fun provideNotificationsRepository(firestore: FirebaseFirestore): NotificationsRepository =
+        NotificationsRepositoryImpl(firestore)
 }

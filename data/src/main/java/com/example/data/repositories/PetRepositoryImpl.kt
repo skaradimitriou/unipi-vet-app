@@ -1,13 +1,17 @@
 package com.example.data.repositories
 
+import android.app.Application
+import com.example.data.R
 import com.example.data.mappers.PetMapper
 import com.example.data.models.PetResponseDto
 import com.example.data.util.PETS_DB_PATH
 import com.example.data.util.compressBitmap
+import com.example.domain.models.Notification
 import com.example.domain.models.Result
 import com.example.domain.models.pets.Pet
 import com.example.domain.models.pets.PetRequest
 import com.example.domain.models.pets.UpdatePetRequest
+import com.example.domain.repositories.NotificationsRepository
 import com.example.domain.repositories.PetRepository
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.StorageReference
@@ -15,8 +19,10 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class PetRepositoryImpl @Inject constructor(
+    private val app: Application,
     private val firestore: FirebaseFirestore,
-    private val storage: StorageReference
+    private val storage: StorageReference,
+    private val notificationsRepo: NotificationsRepository
 ) : PetRepository {
 
     override suspend fun getMyPets(uuid: String): List<Pet> {
@@ -49,6 +55,14 @@ class PetRepositoryImpl @Inject constructor(
             .set(data)
             .addOnSuccessListener {
                 result = Result.Success(true)
+
+                notificationsRepo.setNewNotification(
+                    notification = Notification(
+                        title = app.getString(R.string.new_pet_notif_title),
+                        description = app.getString(R.string.new_pet_notif_desc, pet.nickname)
+                    ),
+                    uuid = uuid
+                )
             }
             .addOnFailureListener {
                 result = Result.Failure(error = it.message.toString())

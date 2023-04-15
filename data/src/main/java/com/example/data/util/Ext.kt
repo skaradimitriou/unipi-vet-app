@@ -3,10 +3,16 @@ package com.example.data.util
 import android.graphics.Bitmap
 import com.google.firebase.firestore.QuerySnapshot
 import java.io.ByteArrayOutputStream
+import java.time.LocalDateTime
 
 fun String?.toNotNull() = this ?: ""
 fun Int?.toNotNull() = this ?: 0
 fun Double?.toNotNull() = this ?: 0.0
+fun Boolean?.toNotNull() = this ?: false
+
+fun String.toDateFormat(): LocalDateTime {
+    return LocalDateTime.parse(this) ?: LocalDateTime.now()
+}
 
 /**
  * Helper fun to transform firestore results to a list of a certain object.

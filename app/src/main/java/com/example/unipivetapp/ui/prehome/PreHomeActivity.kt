@@ -13,7 +13,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class PreHomeActivity : BaseActivity<ActivityPreHomeBinding>(R.layout.activity_pre_home) {
 
     private val viewModel: PreHomeViewModel by viewModels()
-    private val sharedViewModel: PreHomeViewModel by viewModels()
 
     private lateinit var navController: NavController
     private lateinit var navigator: PreHomeNavigatorImpl

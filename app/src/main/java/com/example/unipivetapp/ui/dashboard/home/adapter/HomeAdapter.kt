@@ -52,7 +52,10 @@ class HomeViewHolder(
 
     override fun present(data: UiModel) {
         when (data) {
-            is UserInfo -> binding.setVariable(BR.model, data)
+            is UserInfo -> {
+                binding.setVariable(BR.model, data)
+                binding.setVariable(BR.callback, callback)
+            }
             is FeaturedItemParent -> {
                 val adapter = HomeFeaturedAdapter(this)
                 binding.setVariable(BR.adapter, adapter)
@@ -68,11 +71,13 @@ class HomeViewHolder(
         }
     }
 
+    override fun onNotificationBellClick() = callback.onNotificationBellClick()
     override fun onFeaturedItemClick(item: FeaturedItem) = callback.onFeaturedItemClick(item)
     override fun onVetClick(vet: Vet) = callback.onVetClick(vet)
 }
 
 interface HomeScreenCallback {
+    fun onNotificationBellClick()
     fun onFeaturedItemClick(item: FeaturedItem)
     fun onVetClick(vet: Vet)
 }

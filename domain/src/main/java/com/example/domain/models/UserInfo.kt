@@ -6,7 +6,8 @@ data class UserInfo(
     val telephone: String,
     val email: String,
     val userImg: String,
-    val username: String
+    val username: String,
+    var hasUnreadNotifiactions: Boolean = false
 ) : UiModel {
     override fun equalsContent(obj: UiModel): Boolean = when (obj) {
         is UserInfo -> email == obj.email && username == obj.username

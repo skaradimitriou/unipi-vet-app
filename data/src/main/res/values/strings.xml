@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">data</string>
+
+    <string name="new_appintment_notif_title">Νέο Ραντεβού</string>
+    <string name="new_appintment_notif_desc">Έκλεισες ραντεβού για %1s με τον/την Κτηνίατρο: %2s</string>
+
+    <string name="cancel_appintment_notif_title">Ακύρωση Ραντεβού</string>
+    <string name="cancel_appintment_notif_desc">Το ραντεβού για %1s με τον/την Κτηνίατρο: %2s ακυρώθηκε</string>
+
+    <string name="new_review_notif_title">Νέα κριτική</string>
+    <string name="new_review_notif_desc">Πρόσθεσες μια νέα κριτική στο σύστημα.</string>
+
+    <string name="new_pet_notif_title">Νέο κατοικίδιο</string>
+    <string name="new_pet_notif_desc">Προστέθηκε το κατοικίδιο με όνομα: %1s στη λίστα κατοικιδίων.</string>
 </resources>

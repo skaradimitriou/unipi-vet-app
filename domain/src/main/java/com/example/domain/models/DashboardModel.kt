@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 data class DashboardModel(
     var userInfo: UserInfo,
     val featured: FeaturedItemParent,
-    var popularVets: VetItemParent
+    var popularVets: VetItemParent,
 ) {
     fun toUiData(): List<UiModel> = listOf(
         userInfo,

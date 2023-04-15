@@ -5,9 +5,15 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="model"
             type="com.example.domain.models.UserInfo" />
+
+        <variable
+            name="callback"
+            type="com.example.unipivetapp.ui.dashboard.home.adapter.HomeScreenCallback" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,7 +42,7 @@
             android:layout_marginHorizontal="@dimen/dimen_10"
             android:gravity="start"
             android:text="@string/home_user_greeting"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/notificationBellImgView"
             app:layout_constraintStart_toEndOf="@id/profileUserImgView"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,10 +53,37 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dimen_10"
             android:text="@{model.username}"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/notificationBellImgView"
             app:layout_constraintStart_toEndOf="@id/profileUserImgView"
             app:layout_constraintTop_toBottomOf="@id/greetingTxtView"
             tools:text="@string/profile_dummy_username" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/notificationBellImgView"
+            android:layout_width="@dimen/dimen_xl"
+            android:layout_height="@dimen/dimen_xl"
+            android:background="@drawable/ic_notification"
+            android:backgroundTint="@color/dark_blue"
+            android:contentDescription="@string/app_name"
+            android:onClick="@{() -> callback.onNotificationBellClick()}"
+            android:padding="@dimen/dimen_m"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/unreadNotifImgView"
+            android:layout_width="@dimen/dimen_12"
+            android:layout_height="@dimen/dimen_12"
+            android:background="@drawable/round_corners"
+            android:backgroundTint="@color/red"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/dimen_m"
+            android:scaleType="centerCrop"
+            android:visibility="@{model.hasUnreadNotifiactions ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="@id/notificationBellImgView"
+            app:layout_constraintTop_toTopOf="@id/notificationBellImgView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

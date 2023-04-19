@@ -91,4 +91,7 @@
     <!-- Article WebView Screen -->
     <string name="article_title">Άρθρο</string>
 
+
+    <string name="reviews_next_version_msg_txt">Οι κριτικές είναι διαθέσιμες σε επόμενη έκδοση της εφαρμογής</string>
+
 </resources>

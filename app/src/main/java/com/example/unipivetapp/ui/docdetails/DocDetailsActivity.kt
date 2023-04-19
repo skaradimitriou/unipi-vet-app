@@ -10,13 +10,14 @@ import com.example.unipivetapp.databinding.ActivityDocDetailsBinding
 import com.example.unipivetapp.ui.appointments.AppointmentsActivity
 import com.example.unipivetapp.util.VET
 import com.example.unipivetapp.util.ext.getParcelable
+import com.example.unipivetapp.util.ext.showSnackbar
 
 class DocDetailsActivity : BaseActivity<ActivityDocDetailsBinding>(R.layout.activity_doc_details) {
 
     private val viewModel: DocDetailsViewModel by viewModels()
     private val adapter = DocDetailsAdapter(object : DocDetailsCallback {
         override fun onReviewsClick() {
-            //FIXME: Open reviews activity
+            binding.showSnackbar(getString(R.string.reviews_next_version_msg_txt))
         }
 
         override fun onAppointmentClick() {

@@ -20,7 +20,7 @@
     <!-- Onboarding -->
     <string name="pre_home_additionals_title">Πρόσθετες Πληροφορίες</string>
     <string name="additionals_subheader">Συμπλήρωσε τα στοιχεία του προφίλ σου</string>
-    <string name="username">Username</string>
+    <string name="username">Όνομα Χρήστη</string>
 
     <!-- Main Screen Titles -->
     <string name="home_title">Αρχική</string>
@@ -36,10 +36,10 @@
     <!-- Vets Screen -->
     <string name="vet_details_title">Πληροφορίες</string>
     <string name="dummy_doc_fullname">Manthos Foustanos</string>
-    <string name="dummy_doc_category">VET</string>
-    <string name="doc_experience">Experience</string>
-    <string name="dummy_doc_experience">10 years</string>
-    <string name="working_experience">%d years</string>
+    <string name="dummy_doc_category">Κτηνίατρος</string>
+    <string name="doc_experience">Εμπειρία</string>
+    <string name="dummy_doc_experience">10 χρόνια</string>
+    <string name="working_experience">%d χρόνια</string>
 
     <!-- My Appointments -->
     <string name="my_appointments_title">Τα ραντεβού μου</string>

@@ -39,6 +39,7 @@ class NotificationsRepositoryImpl @Inject constructor(
 
     override suspend fun hasUnreadNotifications(uuid: String): Boolean {
         val result = firestore.collection(NOTIFICATIONS_DB_PATH)
+            .whereEqualTo(USER_ID, uuid)
             .whereEqualTo(HAS_BEEN_READ, false)
             .get()
             .await()

@@ -11,6 +11,8 @@ import com.example.unipivetapp.databinding.FragmentHomeBinding
 import com.example.unipivetapp.ui.dashboard.home.adapter.HomeAdapter
 import com.example.unipivetapp.ui.dashboard.home.adapter.HomeScreenCallback
 import com.example.unipivetapp.ui.docdetails.DocDetailsActivity
+import com.example.unipivetapp.ui.webview.ArticleActivity
+import com.example.unipivetapp.util.ITEM
 import com.example.unipivetapp.util.VET
 import com.example.unipivetapp.util.ext.setScreenTitle
 import dagger.hilt.android.AndroidEntryPoint
@@ -47,7 +49,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), 
     override fun stopOps() {}
 
     override fun onFeaturedItemClick(item: FeaturedItem) {
-        //FIXME: Respond to clicks later on
+        startActivity(Intent(requireContext(), ArticleActivity::class.java).apply {
+            putExtra(ITEM, item)
+        })
     }
 
     override fun onVetClick(vet: Vet) {

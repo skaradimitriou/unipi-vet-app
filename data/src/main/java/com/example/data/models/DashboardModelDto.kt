@@ -8,5 +8,6 @@ data class DashboardModelDto(
 
 data class FeaturedItemDto(
     val image: String? = null,
-    val text: String? = null
+    val text: String? = null,
+    val url: String? = null
 )

@@ -24,6 +24,7 @@ object DashboardMapper : Mapper<DashboardModelDto?, DashboardModel> {
 
     private fun FeaturedItemDto?.toDomainModel() = FeaturedItem(
         image = this?.image.toNotNull(),
-        text = this?.text.toNotNull()
+        text = this?.text.toNotNull(),
+        url = this?.url.toNotNull()
     )
 }

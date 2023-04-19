@@ -88,4 +88,7 @@
     <!-- Edit Profile Screen -->
     <string name="edit_profile_title">Επεξεργασία Προφίλ</string>
 
+    <!-- Article WebView Screen -->
+    <string name="article_title">Άρθρο</string>
+
 </resources>

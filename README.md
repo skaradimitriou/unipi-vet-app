@@ -20,7 +20,10 @@ Clean Architecture MVVM (Model - View - ViewModel)
 
 ### Libraries
 
-[Firebase Firestore](https://firebase.google.com/products/firestore?gclid=Cj0KCQjwy5maBhDdARIsAMxrkw3C2WbNmkoCQ33ntSijJvIBF2EpReTFVALIWQg6sL0cHaDDpD-NLAwaAndTEALw_wcB&gclsrc=aw.ds) For mock requests/ nosql database
-[Gson](https://github.com/google/gson) for serialization/deserialization</br>
+[Hilt]() for dependency injection <br/> 
+[Firebase Authentication](https://firebase.google.com/docs/auth) for user's authentication <br/>
+[Firebase Firestore](https://firebase.google.com/products/firestore?gclid=Cj0KCQjwy5maBhDdARIsAMxrkw3C2WbNmkoCQ33ntSijJvIBF2EpReTFVALIWQg6sL0cHaDDpD-NLAwaAndTEALw_wcB&gclsrc=aw.ds) for mock requests/ nosql database <br/>
+[Firebase Storage](https://firebase.google.com/docs/storage) to store user's media content <br/>
+[Gson](https://github.com/google/gson) for serialization/deserialization </br>
 [Glide](https://github.com/bumptech/glide) to load images <br/> 
 [Timber](https://github.com/JakeWharton/timber) for logging
